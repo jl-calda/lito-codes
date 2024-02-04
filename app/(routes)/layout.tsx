@@ -8,8 +8,10 @@ interface RouteLayoutProps {
 const RouteLayout = ({ children }: RouteLayoutProps) => {
   return (
     <main className={styles.routeLayout}>
-      <Navbar />
-      {children}
+      <div>
+        <Navbar />
+        {children}
+      </div>
     </main>
   );
 };
