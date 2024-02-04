@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "next": "14.1.0",
     "open-props": "^1.6.18",
+    "postcss": "^8.4.33",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sass": "^1.70.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -20,6 +23,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "postcss-jit-props": "^1.0.14",
     "typescript": "^5"
   }
 }
