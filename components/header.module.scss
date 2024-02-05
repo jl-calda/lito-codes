@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--size-1) var(--size-2);
+
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-2);
+
+    li {
+      svg {
+        width: var(--size-3);
+        height: var(--size-3);
+      }
+    }
+  }
+}

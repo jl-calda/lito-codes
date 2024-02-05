@@ -1,0 +1,66 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 0rem;
+
+  svg {
+    width: var(--size-7);
+    height: var(--size-7);
+  }
+
+  p {
+    font-size: var(--font-size-0);
+    font-weight: 700;
+    // z-index: 5;
+  }
+}
+
+.icon_up {
+  transform: rotate(90deg);
+  margin-bottom: -0.8rem;
+  // color: var(--gray-7);
+}
+
+.icon_down {
+  transform: rotate(90deg);
+  margin-top: -0.9rem;
+  // color: var(--gray-7);
+}
+
+.logo_button {
+  background-color: linear-gradient(90deg, var(--gray-6), var(--gray-8));
+  border-style: dashed;
+  border-width: 0.1rem;
+  border-radius: var(--radius-round);
+  border-color: var(--gray-5);
+
+  position: relative;
+}
+
+.highlight {
+  position: absolute;
+  top: 2.5%;
+  right: 50%;
+  width: 80%;
+  height: 95%;
+  transform: translateX(50%);
+  padding: var(--size-2);
+
+  box-shadow: var(--inner-shadow-4);
+  border-radius: var(--radius-round);
+  background-color: white;
+  opacity: 0.45;
+  padding: 1rem;
+  // margin: 1rem;
+  // backdrop-filter: blur(12px);
+
+  transition: transform 0.4s ease-in-out;
+}
+
+.highlight:hover {
+  background-color: var(--gray-1);
+  opacity: 0.45;
+}
