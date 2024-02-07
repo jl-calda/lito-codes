@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { Header } from "@/components/header";
 
+import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 export const metadata: Metadata = {
   title: "lito-codes",
   description: "Personal website of Joselito Calda",
@@ -15,8 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={""}>
-        <Header />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

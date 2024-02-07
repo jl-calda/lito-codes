@@ -1,5 +1,4 @@
 import Navbar from "./_components/navbar";
-import styles from "./layout.module.scss";
 
 interface RouteLayoutProps {
   children: React.ReactNode;
@@ -7,7 +6,7 @@ interface RouteLayoutProps {
 
 const RouteLayout = ({ children }: RouteLayoutProps) => {
   return (
-    <main className={styles.routeLayout}>
+    <main>
       <div>
         <Navbar />
         {children}

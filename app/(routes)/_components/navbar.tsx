@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./navbar.module.scss";
-
 import { Button } from "@/components/ui/button";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 const paths = [
   {
@@ -16,6 +14,10 @@ const paths = [
     name: "Profile",
   },
   {
+    path: "/projects",
+    name: "Projects",
+  },
+  {
     path: "/contact",
     name: "Contact",
   },
@@ -23,24 +25,36 @@ const paths = [
 
 const Navbar = () => {
   const pathName = usePathname();
+  const router = useRouter();
 
   return (
-    <nav className={styles.nav}>
-      <ul>
+    <nav className="rounded-full w-fit p-1 mx-auto shadow-md">
+      <ul className="flex space-x-2 items-center justify-center bg-transparent backdrop-blur-md rounded-full">
         {paths.map((path, index) => (
           <li
+            className=""
             key={crypto.randomUUID()}
-            data-active={pathName === path.path}
           >
             <Button
-              asChild
-              className={styles.link}
+              className="relative py-5"
+              variant="child"
+              onClick={() => router.push(path.path)}
             >
-              <Link href={path.path}>{path.name}</Link>
+              {path.path === pathName && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-accent"
+                  style={{ borderRadius: 9999 }}
+                  transition={{
+                    type: "tween",
+                    duration: 0.5,
+                  }}
+                />
+              )}
+              <span className="relative z-10">{path.name}</span>
             </Button>
           </li>
         ))}
-        <div className={styles.highlight} />
       </ul>
     </nav>
   );
