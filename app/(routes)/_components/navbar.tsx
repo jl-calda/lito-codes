@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const paths = [
   {
@@ -28,21 +29,22 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="rounded-full w-fit p-1 mx-auto shadow-md">
-      <ul className="flex space-x-2 items-center justify-center bg-transparent backdrop-blur-md rounded-full">
+    <nav className="rounded-full w-fit p-1 mx-auto shadow-md shadow-accent bg-background">
+      <ul className="relative flex space-x-2 items-center justify-center backdrop-blur-md rounded-full">
         {paths.map((path, index) => (
           <li
             className=""
             key={crypto.randomUUID()}
+            data-active={path.path === pathName}
           >
             <Button
-              className="relative py-5"
+              className="relative py-5 w-30"
               variant="child"
               onClick={() => router.push(path.path)}
             >
               {path.path === pathName && (
                 <motion.div
-                  layoutId="active-pill"
+                  layoutId="nav-indicator"
                   className="absolute inset-0 bg-accent"
                   style={{ borderRadius: 9999 }}
                   transition={{
@@ -55,6 +57,15 @@ const Navbar = () => {
             </Button>
           </li>
         ))}
+        {/* <div
+          className={cn(
+            "absolute top-[50%]  -translate-y-1/2 bg-red-500 rounded-full transition-transform duration-1000 w-30",
+            pathName === "/" && "translate-x-0 w-1/6",
+            pathName === "/profile" && "translate-x-1/4",
+            pathName === "/projects" && "translate-x-2/4",
+            pathName === "/contact" && "translate-x-3/4"
+          )}
+        /> */}
       </ul>
     </nav>
   );
