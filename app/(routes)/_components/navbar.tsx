@@ -1,9 +1,9 @@
 "use client";
 
+// import useDevice from "@/hooks/useDevice";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { useMediaQuery } from "@uidotdev/usehooks";
 import { cn } from "@/lib/utils";
 import {
   HomeIcon,
@@ -11,6 +11,10 @@ import {
   LayersIcon,
   EnvelopeOpenIcon,
 } from "@radix-ui/react-icons";
+import dynamic from "next/dynamic";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const paths = [
   {
@@ -34,13 +38,13 @@ const paths = [
 const Navbar = () => {
   const pathName = usePathname();
   const router = useRouter();
-  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+  const isMobile = useMediaQuery("only screen and (max-width : 767px)");
 
   return (
     <nav
       className={cn(
         "fixed right-1/2 translate-x-1/2 ease-in-out z-[999] flex backdrop-blur-md",
-        isSmallDevice
+        isMobile
           ? "fixed bottom-0 w-[100%] justify-around border-t border-acccent"
           : "fixed top-8 right-[50%] translate-x-1/2 rounded-full shadow-md p-2"
       )}
@@ -48,7 +52,7 @@ const Navbar = () => {
       {paths.map((path) => (
         <Button
           key={crypto.randomUUID()}
-          className="relative w-full py-6"
+          className="relative w-full py-6 px-6"
           variant="child"
           onClick={() => router.push(path.path)}
         >
@@ -56,9 +60,9 @@ const Navbar = () => {
             <motion.div
               layoutId="nav-indicator"
               className={cn("absolute inset-0 bg-accent", "rounded-full")}
-              style={{ borderRadius: isSmallDevice ? "0" : "9999" }}
+              style={{ borderRadius: isMobile ? "0" : "9999" }}
               transition={
-                isSmallDevice
+                isMobile
                   ? {
                       type: "none",
                       duration: 0.5,
@@ -71,7 +75,7 @@ const Navbar = () => {
             />
           )}
           <div className="flex items-center space-x-2 justify-center">
-            {path.path === "/" && isSmallDevice && (
+            {path.path === "/" && isMobile && (
               <HomeIcon
                 className={cn(
                   path.path === pathName
@@ -81,7 +85,7 @@ const Navbar = () => {
                 )}
               />
             )}
-            {path.path === "/profile" && isSmallDevice && (
+            {path.path === "/profile" && isMobile && (
               <PersonIcon
                 className={cn(
                   path.path === pathName
@@ -91,7 +95,7 @@ const Navbar = () => {
                 )}
               />
             )}
-            {path.path === "/projects" && isSmallDevice && (
+            {path.path === "/projects" && isMobile && (
               <LayersIcon
                 className={cn(
                   path.path === pathName
@@ -101,7 +105,7 @@ const Navbar = () => {
                 )}
               />
             )}
-            {path.path === "/contact" && isSmallDevice && (
+            {path.path === "/contact" && isMobile && (
               <EnvelopeOpenIcon
                 className={cn(
                   path.path === pathName
@@ -111,7 +115,7 @@ const Navbar = () => {
                 )}
               />
             )}
-            {!isSmallDevice && (
+            {!isMobile && (
               <span
                 className={cn(
                   path.path === pathName
