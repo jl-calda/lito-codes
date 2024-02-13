@@ -24,7 +24,7 @@ export const Header = () => {
       initial="hidden"
     >
       <div>
-        <p>Logo</p>
+        <p>Lito</p>
       </div>
       <ThemeToggle />
     </motion.header>

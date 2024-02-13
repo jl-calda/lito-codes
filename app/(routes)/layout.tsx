@@ -1,3 +1,4 @@
+import { Header } from "@/components/header";
 import Navbar from "./_components/navbar";
 
 interface RouteLayoutProps {
@@ -8,6 +9,7 @@ const RouteLayout = ({ children }: RouteLayoutProps) => {
   return (
     <main>
       <div>
+        <Header />
         <Navbar />
         {children}
       </div>
