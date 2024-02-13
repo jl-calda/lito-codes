@@ -13,18 +13,18 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Suspense, SyntheticEvent, useState } from "react";
+import { useState } from "react";
 
-const ProjectCardSkeleton = () => {
-  return (
-    <AspectRatio
-      ratio={4 / 3}
-      className="rounded-xl overflow-hidden cursor-pointer shadow-lg"
-    >
-      <Skeleton className="w-full h-full" />
-    </AspectRatio>
-  );
-};
+// const ProjectCardSkeleton = () => {
+//   return (
+//     <AspectRatio
+//       ratio={4 / 3}
+//       className="rounded-xl overflow-hidden cursor-pointer shadow-lg"
+//     >
+//       <Skeleton className="w-full h-full" />
+//     </AspectRatio>
+//   );
+// };
 
 interface ProjectCardProps {
   data: ProjectType;
