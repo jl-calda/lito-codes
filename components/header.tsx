@@ -1,6 +1,6 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { ComponentBooleanIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
@@ -23,8 +23,9 @@ export const Header = () => {
       animate="visible"
       initial="hidden"
     >
-      <div>
-        <p>Lito</p>
+      <div className="flex items-center justify-center space-x-1 p-2">
+        <ComponentBooleanIcon className="rotate-90 h-6 w-6" />
+        <p className="text-muted-foreground font-medium">Lito</p>
       </div>
       <ThemeToggle />
     </motion.header>

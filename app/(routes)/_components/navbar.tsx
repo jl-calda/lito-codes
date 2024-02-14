@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed right-1/2 translate-x-1/2 ease-in-out z-[999] flex backdrop-blur-md",
+        "fixed right-1/2 translate-x-1/2 ease-in-out z-[999] flex backdrop-blur-lg bg-white/0.8",
         isMobile
           ? "fixed bottom-0 w-[100%] justify-around border-t border-acccent"
           : "fixed top-8 right-[50%] translate-x-1/2 rounded-full shadow-md p-2"

@@ -14,6 +14,12 @@ export type ProjectType = {
     tertiary: string;
     others: string[] | undefined;
   };
+  low_res: {
+    thumbnail: string;
+    secondary: string;
+    tertiary: string;
+    others: string[] | undefined;
+  };
 };
 
 export const projects: ProjectType[] = [
@@ -29,10 +35,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
   {
@@ -47,10 +59,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
   {
@@ -65,10 +83,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
   {
@@ -83,10 +107,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
   {
@@ -101,10 +131,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
   {
@@ -119,10 +155,16 @@ export const projects: ProjectType[] = [
     stack: ["Next.js", "TailwindCSS", "TypeScript"],
     images: {
       logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.jpg",
-      secondary: "/projects/lito-kopi/secondary.jpg",
-      tertiary: "/projects/lito-kopi/tertiary.jpg",
-      others: ["/projects/lito-kopi/beans.jpg"],
+      thumbnail: "/projects/lito-kopi/thumbnail.webp",
+      secondary: "/projects/lito-kopi/secondary.webp",
+      tertiary: "/projects/lito-kopi/tertiary.webp",
+      others: ["/projects/lito-kopi/beans.webp"],
+    },
+    low_res: {
+      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
+      secondary: "/projects/lito-kopi/low-res/secondary.webp",
+      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
+      others: ["/projects/lito-kopi/low-res/beans.webp"],
     },
   },
 ];

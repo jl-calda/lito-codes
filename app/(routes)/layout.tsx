@@ -8,15 +8,13 @@ interface RouteLayoutProps {
 
 const RouteLayout = ({ children }: RouteLayoutProps) => {
   return (
-    <main>
-      <div>
-        <Header />
-        <ClientOnly>
-          <Navbar />
-        </ClientOnly>
-        {children}
-      </div>
-    </main>
+    <>
+      <Header />
+      <ClientOnly>
+        <Navbar />
+      </ClientOnly>
+      <main className="max-w-7xl mx-auto">{children}</main>
+    </>
   );
 };
 
