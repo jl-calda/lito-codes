@@ -55,7 +55,10 @@ export const PricingCards = () => {
   return (
     <div className="grid md:grid-cols-3 gap-x-6">
       {pricing.map((price) => (
-        <PriceCard data={price} />
+        <PriceCard
+          data={price}
+          key={crypto.randomUUID()}
+        />
       ))}
     </div>
   );
