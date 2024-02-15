@@ -47,7 +47,7 @@ export const FeatureSection = () => {
         title="Why You Need a Website"
         description="A website is a powerful tool for businesses and professionals to establish a professional online presence, increase visibility, and foster credibility."
       />
-      <div className="grid md:grid-cols-4 md:gap-x-6 px-4">
+      <div className="grid md:grid-cols-4 gap-x-4 gap-y-4">
         {features.map((feature, index) => (
           <FeatureCard
             data={feature}
