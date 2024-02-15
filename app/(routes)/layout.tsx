@@ -13,7 +13,7 @@ const RouteLayout = ({ children }: RouteLayoutProps) => {
       <ClientOnly>
         <Navbar />
       </ClientOnly>
-      <main className="max-w-7xl mx-auto">{children}</main>
+      <main className="max-w-7xl flex flex-col mx-auto">{children}</main>
     </>
   );
 };

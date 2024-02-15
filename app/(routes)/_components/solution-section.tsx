@@ -3,9 +3,9 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Image from "next/image";
 import React from "react";
 
-export const SecondarySection = () => {
+export const SolutionSection = () => {
   return (
-    <section>
+    <section className="min-h-[80vh]">
       <SectionHeader
         title="Services"
         description="We offer a wide range of services to help you grow your business."
