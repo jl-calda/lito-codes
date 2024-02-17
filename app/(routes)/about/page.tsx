@@ -28,6 +28,7 @@ import {
 import { FaReact } from "react-icons/fa";
 import {
   SiCss3,
+  SiGo,
   SiHtml5,
   SiMongodb,
   SiNextdotjs,
@@ -73,8 +74,8 @@ const technologies = [
     icon: <SiPrisma className="h-6 w-6 mr-2" />,
   },
   {
-    name: "Kubernetes",
-    icon: <FaReact className="h-6 w-6 mr-2" />,
+    name: "Go",
+    icon: <SiGo className="h-6 w-6 mr-2" />,
   },
   {
     name: "Typescript",
