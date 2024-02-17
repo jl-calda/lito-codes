@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import {
   FaBlogger,
+  FaBriefcase,
   FaCode,
   FaCubesStacked,
   FaDownload,
@@ -21,7 +22,9 @@ import {
   FaLinkedin,
   FaMagnifyingGlass,
   FaMessage,
+  FaSchool,
   FaShirt,
+  FaStackExchange,
   FaTwitter,
   FaUserNinja,
 } from "react-icons/fa6";
@@ -111,14 +114,14 @@ const socials = [
 
 const AboutPage = () => {
   return (
-    <section className="grid grid-cols-[1fr_2fr] gap-x-4 gap-y-4 pb-4">
-      <Card className="bg-primary p-3">
-        <CardContent className="relative h-full">
+    <section className="py-6 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-x-4 gap-y-4 pb-4">
+      <Card className="bg-primary p-3 hidden md:block">
+        <CardContent className="relative md:h-full h-[40vh]">
           <Image
             src="/images/selfie.jpeg"
             alt="Joey"
             fill
-            className="object-cover object-top rounded-lg"
+            className="object-cover object-ce rounded-lg"
           />
         </CardContent>
       </Card>
@@ -167,7 +170,34 @@ const AboutPage = () => {
           </div>
         </CardContent>
       </Card>
-      <Card className="col-span-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 md:col-span-3">
+        <Card className="flex flex-col">
+          <CardHeader>
+            <h3 className="text-xl font-semibold flex">
+              <FaSchool className="h-6 w-6 mr-2 text-primary" />
+              Education
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Schools attended and courses I have taken
+            </p>
+          </CardHeader>
+          <CardContent className="flex-1 py-0 flex flex-row space-x-2 justify-center"></CardContent>
+        </Card>
+        <Card className="flex flex-col">
+          <CardHeader>
+            <h3 className="text-xl font-semibold flex">
+              <FaBriefcase className="h-6 w-6 mr-2 text-primary" />
+              Experience
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              Work experience and internships
+            </p>
+          </CardHeader>
+          <CardContent className="flex-1 py-0 flex flex-row space-x-2 justify-center"></CardContent>
+        </Card>
+      </div>
+
+      <Card className="md:col-span-3">
         <CardHeader>
           <h3 className="text-xl font-semibold flex">
             <FaLaptopCode className="h-6 w-6 mr-2 text-primary" />
@@ -208,6 +238,7 @@ const AboutPage = () => {
           <Button
             variant="link"
             className="text-right"
+            asChild
           >
             <Link href="/projects">Check my projects</Link>
           </Button>
@@ -256,6 +287,7 @@ const AboutPage = () => {
           <Button
             variant="link"
             className="text-right"
+            asChild
           >
             <Link href="/blog">View all posts</Link>
           </Button>
@@ -277,6 +309,7 @@ const AboutPage = () => {
           <Button
             variant="link"
             className="text-right"
+            asChild
           >
             <Link href="/code">Check those snippets</Link>
           </Button>

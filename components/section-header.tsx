@@ -1,14 +1,10 @@
 "use client";
 
-import { Catamaran } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Separator } from "./ui/separator";
 import { usePathname } from "next/navigation";
-
-const font = Catamaran({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-});
+import { FaArrowLeft } from "react-icons/fa6";
+import { Button } from "./ui/button";
 
 enum navItems {
   "/" = "/home",
@@ -24,10 +20,35 @@ enum navItems {
 export const SectionHeader = () => {
   const pathName = usePathname();
   return (
-    <div className="flex flex-col space-y-2 my-2">
-      <h2 className={cn(font.className, "text-2xl font-medium self-end")}>
-        {navItems[pathName as keyof typeof navItems]}
-      </h2>
+    <div className="flex flex-col space-y-2 mt-2 md:mt-0">
+      <Separator />
+      <div className="flex flex-row justify-between items-center">
+        <Button
+          variant="ghost"
+          disabled={pathName === "/"}
+          className={cn(
+            pathName === "/" ? "cursor-not-allowed opacity-0" : "opacity-100"
+          )}
+          size="icon"
+          onClick={() => window.history.back()}
+        >
+          <FaArrowLeft
+            className={cn(
+              "h-4 w-4",
+              "md:h-6 md:w-6",
+              "text-muted-foreground",
+              pathName === "/" ? "cursor-not-allowed opacity-0" : "opacity-100"
+            )}
+          />
+        </Button>
+        <h2
+          className={cn(
+            "text-md md:text-lg font-medium text-muted-foreground font-mono"
+          )}
+        >
+          {navItems[pathName as keyof typeof navItems]}
+        </h2>
+      </div>
       <Separator />
     </div>
   );

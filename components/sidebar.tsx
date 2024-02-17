@@ -18,6 +18,7 @@ import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { ReactElement } from "react";
 import { Input } from "./ui/input";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 type NavItem = {
   name: string;
@@ -79,10 +80,11 @@ const navitems: NavItem[] = [
 
 export const Sidebar = () => {
   const pathName = usePathname();
+  const isMobile = useMediaQuery("only screen and (max-width : 768px)");
   return (
     <aside className="flex flex-col space-y-4 h-full">
       <Card
-        className=""
+        className="hidden md:block"
         style={{
           backgroundImage: "var(--gradient)",
         }}
@@ -97,13 +99,13 @@ export const Sidebar = () => {
           </Button>
         </CardContent>
       </Card>
-      <Separator />
-      <nav>
+      <Separator className="hidden md:block" />
+      <nav className="">
         <div className="flex flex-wrap gap-x-2 gap-y-2">
           {navitems.map((item) => (
             <Button
               variant={pathName === item.url ? "outline" : "secondary"}
-              size="default"
+              size={isMobile ? "sm" : "default"}
               className=""
               key={crypto.randomUUID()}
               disabled={!item.live}
@@ -120,7 +122,7 @@ export const Sidebar = () => {
           ))}
         </div>
       </nav>
-      <Separator />
+      <Separator className="hidden md:block" />
     </aside>
   );
 };

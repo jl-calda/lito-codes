@@ -10,11 +10,11 @@ const font = Catamaran({
 
 export const HeroSection = () => {
   return (
-    <section className="py-20 border">
+    <section className="py-8 md:py-20">
       <div
         className={cn(
           font.className,
-          "text-7xl p-4 text-center max-w-6xl mx-auto font-bold tracking-wider flex flex-col space-y-1"
+          "text-4xl md:text-7xl p-4 text-center max-w-6xl mx-auto font-bold tracking-wider flex flex-col space-y-1"
         )}
       >
         <p>

@@ -41,12 +41,12 @@ export default function RootLayout({
         >
           <Header />
           <HeroSection />
-          <main className=" max-w-6xl mx-auto pt-4">
-            <div className="grid grid-cols-[1fr_3.8fr]  gap-x-4 h-full py-4 px-2">
+          {/* <Separator /> */}
+          <main className=" max-w-6xl mx-auto pt-2 px-4">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 h-full pt-2">
               <div className="flex flex-col space-y-2">
                 <Sidebar />
               </div>
-
               <div className="flex flex-col space-y-2">
                 <ClientOnly>
                   <SectionHeader />
@@ -54,7 +54,6 @@ export default function RootLayout({
                 {children}
               </div>
             </div>
-
             <Footer />
           </main>
         </ThemeProvider>

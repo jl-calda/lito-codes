@@ -46,10 +46,10 @@ const ContactPage = () => {
     },
   });
   return (
-    <section className="h-full grid grid-cols-[1fr_1.5fr] gap-x-4">
-      <div className="flex flex-col space-y-4">
-        <Card>
-          <CardHeader>
+    <section className="h-full grid grid-flow-row md:grid md:grid-cols-[1fr_1.5fr] gap-x-4 gap-y-4 py-4">
+      <div className="flex flex-col space-y-4 order-last md:order-none">
+        <Card className="">
+          <CardHeader className="">
             <h2 className="text-2xl font-bold flex">
               <FaMessage className="h-6 w-6 mr-2" />
               Hire Me Instead
@@ -58,37 +58,25 @@ const ContactPage = () => {
               Current looking for a job. I'm open for any opportunities.🧑‍💻
             </p>
           </CardHeader>
-          <div className="grid grid-cols-[3fr_1fr] space-x-4 px-6 pb-4">
-            <CardContent className="p-0">
-              <AspectRatio ratio={16 / 9}>
-                <Image
-                  src="/images/hiring.gif"
-                  fill
-                  className="rounded-lg"
-                  alt="hire me"
-                />
-              </AspectRatio>
-            </CardContent>
-            <CardFooter className="p-0">
-              <Button
-                variant="secondary"
-                className="rounded-lg w-full h-full"
-                asChild
+          <CardFooter className="pb-4">
+            <Button
+              variant="secondary"
+              className="rounded-lg w-full h-full"
+              asChild
+            >
+              <Link
+                href="/api/resume"
+                target="_blank"
+                className="flex flex-col items-center justify-center space-y-2"
               >
-                <Link
-                  href="/api/resume"
-                  target="_blank"
-                  className="flex flex-col items-center justify-center space-y-2"
-                >
-                  <FaDownload className="h-6 w-6 mr-2" />
-                  <span>Resume</span>
-                </Link>
-              </Button>
-            </CardFooter>
-          </div>
+                <FaDownload className="h-6 w-6 mr-2" />
+                <span>Resume</span>
+              </Link>
+            </Button>
+          </CardFooter>
         </Card>
-        <Card>
-          <CardHeader className="pb-2">
+        <Card className="flex-1 flex flex-col pb-4 px-6">
+          <CardHeader className="px-0">
             <h2 className="text-2xl font-bold flex">
               <FaCoffee className="h-6 w-6 mr-2" />
               Buy me a coffee
@@ -98,12 +86,12 @@ const ContactPage = () => {
             </p>
           </CardHeader>
           <CardContent
-            className="py-2"
+            className="py-2 rounded-lg flex-1 flex items-center justify-center pb-4"
             style={{
               backgroundImage: "var(--gradient)",
             }}
           >
-            <div className="w-1/2 mx-auto px-2">
+            <div className="w-1/2">
               <AspectRatio
                 ratio={1 / 1}
                 className=""
@@ -117,10 +105,9 @@ const ContactPage = () => {
               </AspectRatio>
             </div>
           </CardContent>
-          <CardFooter></CardFooter>
         </Card>
       </div>
-      <Card className="flex flex-col">
+      <Card className="flex flex-col order-1 md:order-none">
         <CardHeader>
           <h2 className="text-2xl font-bold flex">
             <FaMessage className="h-6 w-6 mr-2" />
@@ -130,7 +117,7 @@ const ContactPage = () => {
             Fill up the form below and send me a message!
           </p>
         </CardHeader>
-        <CardContent className="flex-1">
+        <CardContent className="flex-1 pb-4">
           <Form {...form}>
             <form
               onSubmit={() => {}}
@@ -172,8 +159,7 @@ const ContactPage = () => {
                       />
                     </FormControl>
                     <FormDescription>
-                      You'll receive a code to verify your email. So I don't
-                      spammed by bots. 🙇
+                      I'll need a way to contact you back. 📧
                     </FormDescription>
                   </FormItem>
                 )}
@@ -195,7 +181,7 @@ const ContactPage = () => {
                     </FormControl>
                     <FormDescription>
                       Please be polite and respectful. Will respond to you the
-                      fasted i could. 💨
+                      fastest I could. 💨
                     </FormDescription>
                   </FormItem>
                 )}
