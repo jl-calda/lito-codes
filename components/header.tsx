@@ -1,33 +1,21 @@
-"use client";
-
-import { ComponentBooleanIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { Button } from "./ui/button";
-import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 import { ThemeToggle } from "./theme-toggle";
+import { Button } from "./ui/button";
 
 export const Header = () => {
-  const { theme, setTheme } = useTheme();
-
-  const headerVariants = {
-    hidden: { rotate: 0 },
-    visible: { rotate: 360 },
-
-    // transition: { opacity: { duration: 0.5 } },
-  };
-
   return (
-    <motion.header
-      layout
-      className="flex items-center justify-between"
-      animate="visible"
-      initial="hidden"
-    >
-      <div className="flex items-center justify-center space-x-1 p-2">
-        <ComponentBooleanIcon className="rotate-90 h-6 w-6" />
-        <p className="text-muted-foreground font-medium">Lito</p>
+    <header className="flex items-center justify-center py-1 px-2 shadow-lg">
+      <div className="w-full flex items-center justify-between p-2 rounded-lg">
+        <Button variant="outline">lito.codes</Button>
+        <div className="flex items-center justify-center space-x-2">
+          <Button>Connect</Button>
+          <Button
+            variant="outline"
+            size="icon"
+          >
+            <ThemeToggle />
+          </Button>
+        </div>
       </div>
-      <ThemeToggle />
-    </motion.header>
+    </header>
   );
 };

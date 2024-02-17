@@ -28,25 +28,16 @@ const socials = [
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-row items-center justify-between pb-2 border-t py-4">
-      <div className="flex items-center justify-center space-x-2">
-        <ComponentBooleanIcon className="animate-spin-slow h-6 w-6 duration-2000 shadow-lg shadow-slate-50" />
-        <div className="flex flex-col justify-start-start space-x-2">
-          <p className="text-muted-foreground text-sm">
-            Joey Calda &copy; 2024
-          </p>
-          <p className="text-muted-foreground text-sm">All rights reserved</p>
-        </div>
-      </div>
-
+    <footer className="col-span-2 h-20 bg-primary flex flex-row items-center justify-between border-t py-4">
+      <p className="text-white text-sm">
+        © {new Date().getFullYear()} lito.codes
+      </p>
       <div className="flex flex-row items-center space-x-2">
         {socials.map((social, index) => (
           <Button
             key={index}
             asChild
             variant="ghost"
-            tooltip
-            tooltipText={`Go to ${social.name} page`}
           >
             <Link href={social.url}>{social.icon}</Link>
           </Button>

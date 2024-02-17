@@ -10,7 +10,39 @@ body,
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --gradient: linear-gradient(to top left, #360033, #0b8793);
+    --background: -60 100% 98.22%;
+    --foreground: -60 10% 0.44%;
+
+    --muted: -60 10% 91.1%;
+    --muted-foreground: -60 5% 41.1%;
+
+    --popover: -60 10% 91.1%;
+    --popover-foreground: -60 10% 0.55%;
+
+    --card: -60 10% 91.1%;
+    --card-foreground: -60 10% 0.55%;
+
+    --border: -60 15% 89.44%;
+    --input: -60 15% 89.44%;
+
+    --primary: -60 100% 11%;
+    --primary-foreground: -60 2% 91.1%;
+
+    --secondary: -60 5% 95.55%;
+    --secondary-foreground: -60 7% 11.1%;
+
+    --accent: -60 5% 95.55%;
+    --accent-foreground: -60 7% 11.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: -60 100% 11%;
+
+    --radius: 0.5rem;
+
+    /* --background: 0 0% 100%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
@@ -29,7 +61,7 @@ body,
     --border: 20 5.9% 90%;
     --input: 20 5.9% 90%;
     --ring: 20 14.3% 4.1%;
-    --radius: 0.5rem;
+    --radius: 0.5rem; */
   }
 
   .dark {
@@ -53,4 +85,12 @@ body,
     --input: 12 6.5% 15.1%;
     --ring: 24 5.7% 82.9%;
   }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  background: var(--background);
 }
