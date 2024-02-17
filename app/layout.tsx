@@ -45,7 +45,9 @@ export default function RootLayout({
           <main className=" max-w-6xl mx-auto pt-2 px-4">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 h-full pt-2">
               <div className="flex flex-col space-y-2">
-                <Sidebar />
+                <ClientOnly>
+                  <Sidebar />
+                </ClientOnly>
               </div>
               <div className="flex flex-col space-y-2">
                 <ClientOnly>
