@@ -11,7 +11,8 @@ export const ThemeToggle = () => {
   return (
     <Button
       asChild
-      variant="child"
+      variant="ghost"
+      size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       <motion.div

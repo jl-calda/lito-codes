@@ -20,6 +20,7 @@ import {
   FaLaptopCode,
   FaLinkedin,
   FaMagnifyingGlass,
+  FaMessage,
   FaShirt,
   FaTwitter,
   FaUserNinja,
@@ -89,7 +90,7 @@ const technologies = [
   },
 ];
 
-export const socials = [
+const socials = [
   {
     name: "GitHub",
     url: "www.github.com",
@@ -144,19 +145,23 @@ const AboutPage = () => {
             collaborative teams and continuously learning new technologies to
             stay up-to-date with the ever-evolving software industry.
           </p>
-          <div>
+          <div className="flex items-center space-x-2 justify-end">
             <Button
               variant="secondary"
               className="rounded-lg"
+              asChild
             >
-              <FaDownload className="h-6 w-6 mr-2" />
+              <Link
+                href="/api/resume"
+                target="_blank"
+              >
+                <FaDownload className="h-6 w-6 mr-2" />
+                Resume
+              </Link>
             </Button>
-            <Button
-              variant="secondary"
-              className="rounded-lg"
-            >
-              <FaDownload className="h-6 w-6 mr-2" />
-              Resume
+            <Button className="rounded-lg">
+              <FaMessage className="h-6 w-6 mr-2" />
+              Connect
             </Button>
           </div>
         </CardContent>

@@ -25,7 +25,7 @@ export const HeroSection = () => {
               backgroundImage: "var(--gradient)",
             }}
           >
-            joey
+            joey.
           </span>
         </p>
         <p>
@@ -36,7 +36,7 @@ export const HeroSection = () => {
               backgroundImage: "var(--gradient)",
             }}
           >
-            {" developer "}
+            {" developer"}
           </span>
         </p>
         <p>
