@@ -34,8 +34,15 @@ export const ProjectCard = ({ data }: ProjectCardProps) => {
             secondary
           />
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute inset-0 bg-foreground/40 backdrop-blur-md px-6 flex flex-col space-y-4 py-4">
-            <h2 className="text-base font-bold text-white">{data.name}</h2>
-
+            <Button
+              variant="link"
+              asChild
+              className="w-fit p-0"
+            >
+              <Link href={`/projects/${data.slug}`}>
+                <h2 className="text-base font-bold text-white">{data.name}</h2>
+              </Link>
+            </Button>
             <p className="font-mono text-white text-xs flex-1">
               {data.description}
             </p>

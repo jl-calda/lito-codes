@@ -24,7 +24,14 @@ export const projects: Project[] = [
     github: "https://github.com/jl-calda/notion-clone-app",
     description:
       "A guided project to clone the Notion app. Following the tutorial by codingwithantonio in youtube.",
-    stack: ["next.js", "tailwindcss", "typescript", "clerk", "convex"],
+    stack: [
+      "next.js",
+      "tailwindcss",
+      "typescript",
+      "clerk",
+      "convex",
+      "edgestore",
+    ],
     type: "guided",
     images: {
       thumbnail: "/images/projects/notion-clone/notion-page.png",
@@ -54,6 +61,7 @@ export const projects: Project[] = [
       "onemap-api",
       "react-hook-form",
       "shadcn-ui",
+      "cloudinary",
     ],
     type: "non-guided",
     images: {

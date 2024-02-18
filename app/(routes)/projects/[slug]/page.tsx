@@ -192,11 +192,17 @@ const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
         </CardHeader>
         <CardContent className="flex flex-row flex-wrap gap-x-2 gap-y-2">
           {project.stack.map((tech) => (
-            <StackIcons
+            <Button
+              variant="secondary"
+              size="sm"
               key={crypto.randomUUID()}
-              technology={tech}
-              className="rounded-lg"
-            />
+            >
+              <StackIcons
+                technology={tech}
+                className="rounded-lg mr-2"
+              />
+              {tech}
+            </Button>
           ))}
         </CardContent>
       </Card>

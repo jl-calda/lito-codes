@@ -15,7 +15,7 @@ import {
 
 const icons = {
   react: SiReact,
-  nextjs: SiNextdotjs,
+  "next.js": SiNextdotjs,
   tailwindcss: SiTailwindcss,
   typescript: SiTypescript,
   nodejs: SiNodedotjs,
