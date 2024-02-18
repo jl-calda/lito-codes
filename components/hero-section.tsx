@@ -10,7 +10,7 @@ const font = Catamaran({
 
 export const HeroSection = () => {
   return (
-    <section className="py-8 md:py-20">
+    <section className="py-6 md:py-10">
       <div
         className={cn(
           font.className,

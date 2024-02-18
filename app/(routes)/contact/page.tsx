@@ -50,7 +50,7 @@ const ContactPage = () => {
       <div className="flex flex-col space-y-4 order-last md:order-none">
         <Card className="">
           <CardHeader className="">
-            <h2 className="text-2xl font-bold flex">
+            <h2 className="text-2xl font-bold flex items-center">
               <FaMessage className="h-6 w-6 mr-2" />
               Hire Me Instead
             </h2>
@@ -77,7 +77,7 @@ const ContactPage = () => {
         </Card>
         <Card className="flex-1 flex flex-col pb-4 px-6">
           <CardHeader className="px-0">
-            <h2 className="text-2xl font-bold flex">
+            <h2 className="text-2xl font-bold flex items-center">
               <FaCoffee className="h-6 w-6 mr-2" />
               Buy me a coffee
             </h2>
@@ -109,7 +109,7 @@ const ContactPage = () => {
       </div>
       <Card className="flex flex-col order-1 md:order-none">
         <CardHeader>
-          <h2 className="text-2xl font-bold flex">
+          <h2 className="text-2xl font-bold flex items-center">
             <FaMessage className="h-6 w-6 mr-2" />
             Contact
           </h2>

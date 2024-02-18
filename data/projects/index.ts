@@ -1,170 +1,71 @@
-export type ProjectType = {
+export type Project = {
   name: string;
-  description: string;
   slug: string;
-  client: string;
-  date: string;
-  github: string;
+  isFeatured: boolean;
   live: string;
+  github: string;
+  description: string;
   stack: string[];
+  type: "guided" | "non-guided";
   images: {
-    logo: string;
     thumbnail: string;
-    secondary: string;
-    tertiary: string;
-    others: string[] | undefined;
-  };
-  low_res: {
-    thumbnail: string;
-    secondary: string;
-    tertiary: string;
-    others: string[] | undefined;
+    video?: string;
+    other?: string[];
   };
 };
 
-export const projects: ProjectType[] = [
+export const projects: Project[] = [
+  // Notion Clone
   {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
+    name: "Notion Clone",
+    slug: "notion-clone",
+    isFeatured: false,
+    live: "https://jl-next-notion-clone.vercel.app",
+    github: "https://github.com/jl-calda/notion-clone-app",
+    description:
+      "A guided project to clone the Notion app. Following the tutorial by codingwithantonio in youtube.",
+    stack: ["next.js", "tailwindcss", "typescript", "clerk", "convex"],
+    type: "guided",
     images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
+      thumbnail: "/images/projects/notion-clone/notion-page.png",
+      video: "/images/projects/notion-clone/notion-record.mov",
+      other: [
+        "/images/projects/notion-clone/notion-search.png",
+        "/images/projects/notion-clone/notion-setting.png",
+        "/images/projects/notion-clone/notion-signin.png",
+      ],
     },
   },
+  // Quarto.asia
   {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
+    name: "quarto.asia",
+    slug: "quarto-asia",
+    isFeatured: true,
+    live: "https://quarto.asia",
+    github: "https://github.com/jl-calda/quarto.sg",
+    description:
+      "A rental property posting site for Singapore. Features account creation and a location search filter using OneMap API.",
+    stack: [
+      "next.js",
+      "tailwindcss",
+      "typescript",
+      "next-auth",
+      "mongodb",
+      "onemap-api",
+      "react-hook-form",
+      "shadcn-ui",
+    ],
+    type: "non-guided",
     images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
-    },
-  },
-  {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
-    images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
-    },
-  },
-  {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
-    images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
-    },
-  },
-  {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
-    images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
-    },
-  },
-  {
-    name: "lito Kopi",
-    description: "Coffee kiosk from fast moving professionals",
-    slug: "lito-kopi",
-    client: "lito Kopi Ltd.",
-    date: "2024",
-
-    github: "https://github.com",
-    live: "https://live.com",
-    stack: ["Next.js", "TailwindCSS", "TypeScript"],
-    images: {
-      logo: "/projects/lito-kopi/logo.png",
-      thumbnail: "/projects/lito-kopi/thumbnail.webp",
-      secondary: "/projects/lito-kopi/secondary.webp",
-      tertiary: "/projects/lito-kopi/tertiary.webp",
-      others: ["/projects/lito-kopi/beans.webp"],
-    },
-    low_res: {
-      thumbnail: "/projects/lito-kopi/low-res/thumbnail.webp",
-      secondary: "/projects/lito-kopi/low-res/secondary.webp",
-      tertiary: "/projects/lito-kopi/low-res/tertiary.webp",
-      others: ["/projects/lito-kopi/low-res/beans.webp"],
+      thumbnail: "/images/projects/quarto-asia/quarto-home.png",
+      video: "/images/projects/quarto-asia/quarto-record.mov",
+      other: [
+        "/images/projects/quarto-asia/quarto-login.png",
+        "/images/projects/quarto-asia/quarto-post.png",
+        "/images/projects/quarto-asia/quarto-post2.png",
+        "/images/projects/quarto-asia/quarto-posting.png",
+        "/images/projects/quarto-asia/quarto-profile.png",
+      ],
     },
   },
 ];

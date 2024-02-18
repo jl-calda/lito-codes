@@ -42,6 +42,7 @@ import {
 } from "react-icons/si";
 import { SiTailwindcss } from "react-icons/si";
 import { SiNodedotjs } from "react-icons/si";
+import { CardBanner } from "@/components/card-banner";
 
 const technologies = [
   {
@@ -125,16 +126,11 @@ const AboutPage = () => {
           />
         </CardContent>
       </Card>
-      <Card className="md:col-span-2">
+      <Card className="md:col-span-2 relative">
         <CardHeader>
-          <h3 className="text-xl font-semibold flex text-primary items-center justify-between">
-            <div className="flex">
-              <FaMagnifyingGlass className="h-6 w-6 mr-2 text-primary" />
-              Background
-            </div>
-            <div className="text-xs text-white bg-amber-500 px-4 py-1">
-              Open for Employment !
-            </div>
+          <h3 className="text-xl font-semibold flex items-center">
+            <FaMagnifyingGlass className="h-6 w-6 mr-2 text-primary" />
+            Background
           </h3>
           <p className="text-muted-foreground text-sm">
             Brief summary about me and work experience
@@ -169,6 +165,7 @@ const AboutPage = () => {
             </Button>
           </div>
         </CardContent>
+        <CardBanner text="Open for employment" />
       </Card>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 md:col-span-3">
         <Card className="flex flex-col">
@@ -244,16 +241,11 @@ const AboutPage = () => {
           </Button>
         </CardFooter>
       </Card>
-      <Card className="flex flex-col row-span-2 bg-primary">
+      <Card className="flex flex-col row-span-2 bg-primary relative">
         <CardHeader>
-          <h3 className="text-xl font-semibold flex text-primary-foreground items-center justify-between">
-            <div className="flex">
-              <FaShirt className="h-6 w-6 mr-2 text-primary-foreground" />
-              Merch
-            </div>
-            <div className="text-xs text-white bg-amber-500 px-4 py-1">
-              Coming Soon!
-            </div>
+          <h3 className="text-xl font-semibold flex text-primary-foreground items-center">
+            <FaShirt className="h-6 w-6 mr-2 text-primary-foreground" />
+            Merch
           </h3>
           <p className="text-muted text-sm">
             Get your hands on some cool merch. This will support me and this
@@ -270,6 +262,7 @@ const AboutPage = () => {
             />
           </AspectRatio>
         </CardContent>
+        <CardBanner text="Opening soon" />
       </Card>
       {/* BLOGS */}
       <Card className="flex flex-col">

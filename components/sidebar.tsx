@@ -19,6 +19,7 @@ import { Separator } from "./ui/separator";
 import { ReactElement } from "react";
 import { Input } from "./ui/input";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { SidebarSeparator } from "./sidebar-separator";
 
 type NavItem = {
   name: string;
@@ -82,7 +83,7 @@ export const Sidebar = () => {
   const pathName = usePathname();
   const isMobile = useMediaQuery("only screen and (max-width : 768px)");
   return (
-    <aside className="flex flex-col space-y-4 h-full">
+    <aside className="flex flex-col space-y-2">
       <Card
         className="hidden md:block"
         style={{
@@ -99,7 +100,7 @@ export const Sidebar = () => {
           </Button>
         </CardContent>
       </Card>
-      <Separator className="hidden md:block" />
+      <SidebarSeparator title="Navigation" />
       <nav className="">
         <div className="flex flex-wrap gap-x-2 gap-y-2">
           {navitems.map((item) => (
@@ -122,7 +123,6 @@ export const Sidebar = () => {
           ))}
         </div>
       </nav>
-      <Separator className="hidden md:block" />
     </aside>
   );
 };
