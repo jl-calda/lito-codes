@@ -1,7 +1,5 @@
 import { cn } from "@/lib/utils";
 import { Catamaran } from "next/font/google";
-import { Button } from "./ui/button";
-import { Card, CardContent } from "./ui/card";
 
 const font = Catamaran({
   weight: ["400", "700"],
