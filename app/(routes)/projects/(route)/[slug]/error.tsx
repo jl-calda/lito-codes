@@ -1,5 +1,4 @@
 "use client";
-import Error from "next/error";
 
 import { FaTriangleExclamation } from "react-icons/fa6";
 

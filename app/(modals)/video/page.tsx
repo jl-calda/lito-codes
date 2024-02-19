@@ -6,7 +6,7 @@ const VideoPage = ({ searchParams: { url } }: VideoPageParams) => {
   return (
     <video
       src={url}
-      className="rounded-lg object-cover object-center shadow-lg p-8"
+      className="rounded-lg object-cover object-top shadow-lg"
       autoPlay
       muted
       loop
