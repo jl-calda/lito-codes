@@ -269,9 +269,17 @@ const AboutPage = () => {
               <p className="text-sm text-muted-foreground font-medium justify-self-start">
                 Owner/Developer
               </p>
-              <p className="text-sm text-muted-foreground font-bold justify-self-start">
-                quarto.asia
-              </p>
+              <Button
+                asChild
+                variant="link"
+                className="p-0 items-start"
+              >
+                <Link href="https://quarto.asia">
+                  <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                    quarto.asia
+                  </p>
+                </Link>
+              </Button>
               <p className="text-sm text-muted-foreground font-medium justify-self-end">
                 2023-Present
               </p>
