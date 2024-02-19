@@ -5,8 +5,9 @@ import { StalkingCard } from "./_components/stalking-card";
 import { MessagesCard } from "./_components/messages-card";
 
 const HomePage = () => {
+  return <UnderConstruction />;
   return (
-    <section className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1.2fr] gap-x-6 gap-y-6 md:py-4 md:px-4">
+    <section className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1.2fr] gap-x-4 gap-y-4 md:py-4">
       <VisitingCard />
       <ServicesCard />
       <StalkingCard />

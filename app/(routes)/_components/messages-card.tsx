@@ -10,6 +10,7 @@ import React from "react";
 import { CardHeaderTitle } from "./card-header-title";
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { MessageForm } from "./message-form";
 
 export const MessagesCard = () => {
   return (
@@ -24,16 +25,21 @@ export const MessagesCard = () => {
         </p>
       </CardHeader>
       <CardContent>
-        <AspectRatio
-          ratio={16 / 9}
-          className="rounded-lg overflow-hidden"
-        >
-          <Image
-            src="/images/message.gif"
-            fill
-            alt="hello object-cover object-center w-full h-full rounded-lg"
-          />
-        </AspectRatio>
+        <div className="grid grid-cols-[1fr_1.5fr]">
+          <div className="flex flex-col space-y-2">
+            <AspectRatio
+              ratio={16 / 9}
+              className="rounded-lg overflow-hidden"
+            >
+              <Image
+                src="/images/message.gif"
+                fill
+                alt="hello object-cover object-center w-full h-full rounded-lg"
+              />
+            </AspectRatio>
+            <MessageForm />
+          </div>
+        </div>
       </CardContent>
       <CardFooter></CardFooter>
     </Card>

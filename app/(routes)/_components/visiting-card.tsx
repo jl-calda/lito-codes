@@ -17,10 +17,11 @@ import { CardHeaderTitle } from "./card-header-title";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
+import { CardBanner } from "@/components/card-banner";
 
 export const VisitingCard = () => {
   return (
-    <Card className="md:col-span-2">
+    <Card className="md:col-span-2 relative">
       <CardHeader>
         <h2 className="text-4xl font-bold tracking-tighter">
           We have a visitor!
@@ -51,8 +52,8 @@ export const VisitingCard = () => {
                 alt="hello object-cover object-center w-full h-full rounded-lg"
               />
               <div className="absolute bottom-4  w-full">
-                <p className="text-2xl font-semibold text-white flex items-center justify-center">
-                  Welcome to the page!
+                <p className="text-2xl font-semibold text-white flex items-center justify-center font-mono">
+                  Welcome to lito.codes
                 </p>
               </div>
               <div className="absolute inset-0 bg-black/50 blur-sm" />
@@ -64,6 +65,7 @@ export const VisitingCard = () => {
       <CardFooter>
         <p>Don't let the gifs, get to you.</p>
       </CardFooter>
+      <CardBanner text="lito.codes" />
     </Card>
   );
 };
