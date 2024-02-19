@@ -41,10 +41,10 @@ export const ProjectCard = ({ data, secondary = false }: ProjectCardProps) => {
               className="w-fit p-0"
             >
               <Link href={`/projects/${data.slug}`}>
-                <h2 className="text-base font-bold text-white">{data.name}</h2>
+                <h2 className="text-base font-bold text-muted">{data.name}</h2>
               </Link>
             </Button>
-            <p className="font-mono text-white text-xs flex-1">
+            <p className="font-mono text-muted text-xs flex-1">
               {data.description}
             </p>
             <div className="flex items-center justify-between">

@@ -61,16 +61,14 @@ export const ProjectNav = () => {
           <Button
             variant={params.slug === slug ? "default" : "secondary"}
             key={crypto.randomUUID()}
-            asChild
             size="sm"
-            className="rounded-full"
+            className="rounded-full font-mono text-xs tracking-wide"
+            onClick={() => {
+              if (params.slug === slug) router.push("/projects");
+              else router.push(`/projects/${slug}`);
+            }}
           >
-            <Link
-              href={params.slug === slug ? "/projects" : `/projects/${slug}`}
-              className="font-mono text-[10px] tracking-wide"
-            >
-              {slug}
-            </Link>
+            {slug}
           </Button>
         ))}
       </div>
