@@ -1,8 +1,13 @@
 import { Project } from "@/data/projects";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
-import { Button } from "./ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../../../../components/ui/card";
+import { Button } from "../../../../components/ui/button";
 import Link from "next/link";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { AspectRatio } from "../../../../components/ui/aspect-ratio";
 import Image from "next/image";
 import {
   FaArrowTurnDown,
@@ -10,7 +15,7 @@ import {
   FaGithub,
   FaGlobe,
 } from "react-icons/fa6";
-import { CardBanner } from "./card-banner";
+import { CardBanner } from "../../../../components/card-banner";
 interface ProjectCardProps {
   data: Project;
   secondary?: boolean;

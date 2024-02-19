@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import {
+  SiAuthy,
   SiCss3,
   SiGo,
   SiHtml5,
@@ -25,6 +26,7 @@ const icons = {
   go: SiGo,
   css: SiCss3,
   html: SiHtml5,
+  "next-auth": SiAuthy,
 };
 
 interface StackIconsProps {

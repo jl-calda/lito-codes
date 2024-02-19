@@ -21,9 +21,9 @@ import {
   FaGlobe,
   FaLink,
   FaMobileScreen,
-  FaScreenpal,
 } from "react-icons/fa6";
 import { StackIcons } from "@/components/stack-icons";
+import ErrorPage from "./error";
 
 interface ProjectPageParams {
   params: {
@@ -36,7 +36,7 @@ const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
   const router = useRouter();
 
   if (!project) {
-    return null;
+    return <ErrorPage />;
   }
 
   const handleClick = (query: string) => {

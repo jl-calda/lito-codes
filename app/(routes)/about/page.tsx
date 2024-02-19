@@ -113,7 +113,16 @@ const socials = [
   },
 ];
 
+import { projects } from "@/data/projects";
+import { StackIcons } from "@/components/stack-icons";
+import { SidebarSeparator } from "@/components/sidebar-separator";
+import { Separator } from "@/components/ui/separator";
+
 const AboutPage = () => {
+  const stacks = Array.from(
+    new Set(projects.flatMap((project) => project.stack))
+  );
+
   return (
     <section className="py-6 grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-x-4 gap-y-4 pb-4">
       <Card className="bg-primary p-3 hidden md:block">
@@ -167,7 +176,7 @@ const AboutPage = () => {
         </CardContent>
         <CardBanner text="Open for employment" />
       </Card>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 md:col-span-3">
+      <div className="grid grid-cols-1 md:grid-cols-[1.7fr_2fr] gap-x-4 gap-y-4 md:col-span-3">
         <Card className="flex flex-col">
           <CardHeader>
             <h3 className="text-xl font-semibold flex">
@@ -178,9 +187,66 @@ const AboutPage = () => {
               Schools attended and courses I have taken
             </p>
           </CardHeader>
-          <CardContent className="flex-1 py-0 flex flex-row space-x-2 justify-center"></CardContent>
+          <CardContent className="flex-1 py-0 flex flex-col space-y-2 pb-6">
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                BS in Civil Engg
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-end">
+                Adamson University
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2009-2014
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Secondary
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-end">
+                Mangaldan NHS
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2005-2009
+              </p>
+            </div>
+            <Separator className="bg-secondary h-0.5" />
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-bold">
+                Maximillian Schwarzmüller's React Guide
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                Udemy
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2019
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-bold">
+                Jonas Schmedtmann's Complete Javascript Course
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                Udemy
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2018
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-bold">
+                Anthony Alicea's JS Understanding the Weird Parts
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                Udemy
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2019
+              </p>
+            </div>
+          </CardContent>
         </Card>
-        <Card className="flex flex-col">
+        <Card className="flex flex-col relative">
           <CardHeader>
             <h3 className="text-xl font-semibold flex">
               <FaBriefcase className="h-6 w-6 mr-2 text-primary" />
@@ -190,7 +256,83 @@ const AboutPage = () => {
               Work experience and internships
             </p>
           </CardHeader>
-          <CardContent className="flex-1 py-0 flex flex-row space-x-2 justify-center"></CardContent>
+          <CardContent className="flex-1 py-0 flex flex-col space-y-2 pb-6">
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Owner/Developer
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                quarto.asia
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2023-Present
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                SG
+              </p>
+            </div>
+            <Separator className="bg-secondary h-0.5" />
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Design Engineer
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                Ruevaleur Construction
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2021-Present
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                SG
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Design Engr
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                DS Brown Singapore
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2019-2021
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                SG
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Associate Engr
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                Fluor Daniel Philippines
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                2018-2019
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                PH
+              </p>
+            </div>
+            <div className="grid grid-flow-col gap-x-2 w-full place-items-start">
+              <p className="text-sm text-muted-foreground font-medium justify-self-start">
+                Structural Engr
+              </p>
+              <p className="text-sm text-muted-foreground font-bold justify-self-start">
+                Chiyoda Philippines
+              </p>
+              <p className="text-sm text-muted-foreground font-medium place-self-end">
+                2015-2018
+              </p>
+              <p className="text-sm text-muted-foreground font-medium justify-self-end">
+                PH
+              </p>
+            </div>
+          </CardContent>
+          <CardBanner
+            text="Help me land my first tech job!"
+            secondary
+          />
         </Card>
       </div>
 
@@ -206,14 +348,14 @@ const AboutPage = () => {
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {technologies.map((tech, index) => (
+            {stacks.map((tech) => (
               <Button
                 key={crypto.randomUUID()}
                 variant="secondary"
-                className="rounded-lg"
+                className="rounded-lg flex items-center space-x-2"
               >
-                {tech.icon}
-                {tech.name}
+                <StackIcons technology={tech} />
+                <p>{tech}</p>
               </Button>
             ))}
           </div>

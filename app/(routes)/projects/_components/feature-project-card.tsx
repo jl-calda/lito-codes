@@ -1,13 +1,18 @@
 "use client";
 
 import { Project } from "@/data/projects";
-import { Card, CardContent, CardFooter, CardHeader } from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "../../../../components/ui/card";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../../../../components/ui/button";
 
 import Link from "next/link";
-import { CardBanner } from "./card-banner";
+import { CardBanner } from "../../../../components/card-banner";
 
 interface FeaturedProjectCardProps {
   data: Project[];

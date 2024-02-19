@@ -1,11 +1,9 @@
-import { FeaturedProjectCard } from "@/components/feature-project-card";
-import { ProjectCard } from "@/components/project-card";
+import { FeaturedProjectCard } from "@/app/(routes)/projects/_components/feature-project-card";
+import { ProjectCard } from "@/app/(routes)/projects/_components/project-card";
 import { SectionSeparator } from "@/components/section-separator";
-import { SidebarSeparator } from "@/components/sidebar-separator";
 import { StackIcons } from "@/components/stack-icons";
 import { Card, CardHeader } from "@/components/ui/card";
 import { projects } from "@/data/projects";
-import { StackIcon } from "@radix-ui/react-icons";
 
 interface ProjectPageParams {
   searchParams: {
