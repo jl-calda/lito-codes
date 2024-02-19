@@ -24,7 +24,6 @@ import {
   FaMessage,
   FaSchool,
   FaShirt,
-  FaStackExchange,
   FaTwitter,
   FaUserNinja,
 } from "react-icons/fa6";
@@ -163,14 +162,23 @@ const AboutPage = () => {
               <Link
                 href="/api/resume"
                 target="_blank"
+                className="flex items-center space-x-2"
               >
-                <FaDownload className="h-6 w-6 mr-2" />
+                <FaDownload className="h-6 w-6" />
                 Resume
               </Link>
             </Button>
-            <Button className="rounded-lg">
-              <FaMessage className="h-6 w-6 mr-2" />
-              Connect
+            <Button
+              className="rounded-lg"
+              asChild
+            >
+              <Link
+                href="/contact"
+                className="flex items-center space-x-2"
+              >
+                <FaMessage className="h-6 w-6" />
+                Connect
+              </Link>
             </Button>
           </div>
         </CardContent>
