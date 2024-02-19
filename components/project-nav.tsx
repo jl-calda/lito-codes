@@ -43,7 +43,7 @@ export const ProjectNav = () => {
       const url = qs.stringifyUrl(
         {
           url: "/projects",
-          query: updatedQuery,
+          query: query === searchParams?.get("stack_type") ? {} : updatedQuery,
         },
         { skipNull: true }
       );
@@ -66,7 +66,7 @@ export const ProjectNav = () => {
             className="rounded-full"
           >
             <Link
-              href={`/projects/${slug}`}
+              href={params.slug === slug ? "/projects" : `/projects/${slug}`}
               className="font-mono text-[10px] tracking-wide"
             >
               {slug}

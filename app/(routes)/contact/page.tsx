@@ -1,5 +1,11 @@
 "use client";
 
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import Image from "next/image";
+
 import {
   Card,
   CardContent,
@@ -15,18 +21,18 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import React from "react";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FaDownload, FaMessage, FaPaperPlane } from "react-icons/fa6";
+import {
+  FaDownload,
+  FaMessage,
+  FaPaperPlane,
+  FaThumbsUp,
+} from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { FaCoffee } from "react-icons/fa";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import Image from "next/image";
 
 const ContactSchema = z.object({
   name: z.string(),
@@ -51,7 +57,7 @@ const ContactPage = () => {
         <Card className="">
           <CardHeader className="">
             <h2 className="text-2xl font-bold flex items-center">
-              <FaMessage className="h-6 w-6 mr-2" />
+              <FaThumbsUp className="h-6 w-6 mr-2" />
               Hire Me Instead
             </h2>
             <p className="text-muted-foreground text-sm">

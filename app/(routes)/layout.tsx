@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning={true}
     >
-      <body className={cn(font.className, "min-h-full")}>
+      <body className={cn(font.className, "min-h-full flex flex-col")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -43,8 +43,8 @@ export default function RootLayout({
           <Header />
           <HeroSection />
           {/* <Separator /> */}
-          <main className=" max-w-6xl mx-auto pt-2 px-4">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 h-full pt-2">
+          <main className=" max-w-6xl mx-auto pt-2 px-4 flex-1 md:h-full flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 pt-2 md:flex-1">
               <div className="flex flex-col space-y-2">
                 <ClientOnly>
                   <Sidebar />

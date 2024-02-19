@@ -13,9 +13,10 @@ import {
 import { CardBanner } from "./card-banner";
 interface ProjectCardProps {
   data: Project;
+  secondary?: boolean;
 }
 
-export const ProjectCard = ({ data }: ProjectCardProps) => {
+export const ProjectCard = ({ data, secondary = false }: ProjectCardProps) => {
   return (
     <Card>
       <CardContent className="p-2">
@@ -31,7 +32,7 @@ export const ProjectCard = ({ data }: ProjectCardProps) => {
           />
           <CardBanner
             text={data.slug}
-            secondary
+            secondary={secondary}
           />
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 absolute inset-0 bg-foreground/40 backdrop-blur-md px-6 flex flex-col space-y-4 py-4">
             <Button
