@@ -24,6 +24,7 @@ import {
 } from "react-icons/fa6";
 import { StackIcons } from "@/components/stack-icons";
 import ErrorPage from "./error";
+import { ProjectCard } from "../../_components/project-card";
 
 interface ProjectPageParams {
   params: {
@@ -33,6 +34,7 @@ interface ProjectPageParams {
 
 const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
   const project = projects.find((project) => project.slug === slug);
+  const otherProjects = projects.filter((project) => project.slug !== slug);
   const router = useRouter();
 
   if (!project) {
@@ -212,6 +214,15 @@ const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
         </CardContent>
       </Card>
       <SectionSeparator title="View my other projects" />
+      <div className="grid md:grid-cols-3 gap-x-4 gap-y-4">
+        {otherProjects.map((project) => (
+          <ProjectCard
+            key={crypto.randomUUID()}
+            data={project}
+            secondary
+          />
+        ))}
+      </div>
     </section>
   );
 };
