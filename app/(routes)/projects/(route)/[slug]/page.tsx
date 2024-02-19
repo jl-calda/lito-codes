@@ -39,6 +39,10 @@ const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
     return null;
   }
 
+  const handleClick = (query: string) => {
+    router.push(`/projects?stack_type=${query}`);
+  };
+
   return (
     <section className="flex flex-col space-y-4">
       <div className="grid md:grid-cols-[2fr_1fr] gap-x-4 gap-y-4">
@@ -196,6 +200,7 @@ const ProjectPage = ({ params: { slug } }: ProjectPageParams) => {
               variant="secondary"
               size="sm"
               key={crypto.randomUUID()}
+              onClick={() => handleClick(tech)}
             >
               <StackIcons
                 technology={tech}
