@@ -1,7 +1,7 @@
-import React from "react";
+import { UnderConstruction } from "@/components/under-construction";
 
 const CodePage = () => {
-  return <div>CodePage</div>;
+  return <UnderConstruction />;
 };
 
 export default CodePage;

@@ -1,7 +1,7 @@
-import { HeroSection } from "@/components/hero-section";
+import { UnderConstruction } from "@/components/under-construction";
 
 const HomePage = () => {
-  return <section className="h-full">a</section>;
+  return <UnderConstruction />;
 };
 
 export default HomePage;
