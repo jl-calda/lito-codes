@@ -6,13 +6,17 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import React from "react";
-import { CardHeaderTitle } from "./card-header-title";
+
 import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { MessageForm } from "./message-form";
+import { useSocket } from "@/components/providers/socket-provider";
+
+import { MessagesBoardClient } from "./messages-board-client";
 
 export const MessagesCard = () => {
+  const { isConnected } = useSocket();
+  console.log(isConnected);
   return (
     <Card className="md:col-span-2">
       <CardHeader>
@@ -39,9 +43,12 @@ export const MessagesCard = () => {
             </AspectRatio>
             <MessageForm />
           </div>
+          <MessagesBoardClient />
         </div>
       </CardContent>
-      <CardFooter></CardFooter>
+      <CardFooter className="text-black">
+        {isConnected ? "true" : "false"}
+      </CardFooter>
     </Card>
   );
 };

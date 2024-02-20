@@ -14,6 +14,7 @@ import { ClientOnly } from "@/components/client-only";
 import { SecondaryNav } from "@/components/secondary-nav";
 import { Suspense } from "react";
 import { SidebarSkeleton } from "@/components/sidebar-skeleton";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 export const metadata: Metadata = {
   title: "lito-codes",
@@ -42,29 +43,31 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <HeroSection />
-          {/* <Separator /> */}
-          <main className=" max-w-7xl mx-auto pt-2 px-4 flex-1 md:h-full flex flex-col">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 pt-2 md:flex-1">
-              <div className="flex flex-col space-y-2">
-                {/* <SidebarSkeleton /> */}
-                <Suspense fallback={<SidebarSkeleton />}>
+          <SocketProvider>
+            <Header />
+            <HeroSection />
+            {/* <Separator /> */}
+            <main className=" max-w-7xl mx-auto pt-2 px-4 flex-1 md:h-full flex flex-col">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] md:gap-y-4 gap-x-4 pt-2 md:flex-1">
+                <div className="flex flex-col space-y-2">
+                  {/* <SidebarSkeleton /> */}
+                  <Suspense fallback={<SidebarSkeleton />}>
+                    <ClientOnly>
+                      <Sidebar />
+                      <SecondaryNav />
+                    </ClientOnly>
+                  </Suspense>
+                </div>
+                <div className="flex flex-col space-y-2">
                   <ClientOnly>
-                    <Sidebar />
-                    <SecondaryNav />
+                    <SectionHeader />
                   </ClientOnly>
-                </Suspense>
+                  {children}
+                </div>
               </div>
-              <div className="flex flex-col space-y-2">
-                <ClientOnly>
-                  <SectionHeader />
-                </ClientOnly>
-                {children}
-              </div>
-            </div>
-            <Footer />
-          </main>
+              <Footer />
+            </main>
+          </SocketProvider>
         </ThemeProvider>
       </body>
     </html>

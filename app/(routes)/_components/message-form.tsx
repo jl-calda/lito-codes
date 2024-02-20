@@ -12,32 +12,50 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import React from "react";
+import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useSocket } from "@/components/providers/socket-provider";
 
 const MessageSchema = z.object({
   name: z.string(),
   avatar: z.string(),
   message: z.string().min(3),
-  confirmation: z.string(),
 });
 export const MessageForm = () => {
+  const [pending, startTransition] = useTransition();
+  const { isConnected, socket } = useSocket();
+  const router = useRouter();
   const form = useForm<z.infer<typeof MessageSchema>>({
     resolver: zodResolver(MessageSchema),
     defaultValues: {
       name: "",
       avatar: "",
       message: "",
-      confirmation: "",
     },
   });
+
+  const onSubmit = (data: z.infer<typeof MessageSchema>) => {
+    if (!isConnected) {
+      return;
+    }
+
+    startTransition(() => {
+      axios
+        .post("/api/socket/send", data)
+        .then(() => form.reset())
+        .then(() => router.refresh());
+    });
+  };
+
   return (
     <Form {...form}>
       <form
-        onSubmit={() => {}}
+        onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col h-full space-y-4"
       >
         <FormField
@@ -51,6 +69,7 @@ export const MessageForm = () => {
               </div>
               <FormControl>
                 <Input
+                  disabled={pending}
                   {...field}
                   className="bg-secondary"
                   placeholder="Name"
@@ -71,6 +90,7 @@ export const MessageForm = () => {
               </div>
               <FormControl>
                 <Input
+                  disabled={pending}
                   {...field}
                   className="bg-secondary"
                   type="text"
@@ -90,6 +110,7 @@ export const MessageForm = () => {
               </div>
               <FormControl>
                 <Textarea
+                  disabled={pending}
                   {...field}
                   className="bg-secondary flex-1"
                 />
@@ -97,7 +118,8 @@ export const MessageForm = () => {
             </FormItem>
           )}
         />
-        <FormField
+
+        {/* <FormField
           name="confirmation"
           control={form.control}
           render={({ field }) => (
@@ -114,8 +136,13 @@ export const MessageForm = () => {
               </FormControl>
             </FormItem>
           )}
-        />
-        <Button className="rounded-lg">Send Message</Button>
+        /> */}
+        <Button
+          type="submit"
+          className="rounded-lg"
+        >
+          Send Message
+        </Button>
       </form>
       {/* <div className="flex items-center space-x-2 justify-end">
            
