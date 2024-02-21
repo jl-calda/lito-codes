@@ -27,7 +27,7 @@ export const ProjectCard = ({ data, secondary = false }: ProjectCardProps) => {
       <CardContent className="p-2">
         <AspectRatio
           ratio={13 / 9}
-          className="group h-64 md:h-auto cursor-pointer overflow-hidden shadow-md rounded-xl"
+          className="group md:h-auto cursor-pointer overflow-hidden shadow-md rounded-xl"
         >
           <Image
             src={data.images.thumbnail}

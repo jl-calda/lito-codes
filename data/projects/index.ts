@@ -1,3 +1,6 @@
+import { FaGit, FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
+import { IconType } from "react-icons/lib";
+
 export type Project = {
   name: string;
   slug: string;
@@ -75,5 +78,28 @@ export const projects: Project[] = [
         "/images/projects/quarto-asia/quarto-profile.png",
       ],
     },
+  },
+];
+
+export type Social = {
+  name: string;
+  url: string;
+  icon: IconType;
+};
+export const socials: Social[] = [
+  {
+    name: "GitHub",
+    url: "www.github.com",
+    icon: FaGithub,
+  },
+  {
+    name: "Twitter",
+    url: "www.twitter.com",
+    icon: FaTwitter,
+  },
+  {
+    name: "LinkedIn",
+    url: "www.linkedin.com",
+    icon: FaLinkedinIn,
   },
 ];

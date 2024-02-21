@@ -34,6 +34,10 @@ interface StackIconsProps {
   className?: string;
 }
 
+export const isWithStackIcons = (technology: string) => {
+  return technology in icons;
+};
+
 export const StackIcons = ({ technology, className }: StackIconsProps) => {
   const Icon = icons[technology as keyof typeof icons];
 

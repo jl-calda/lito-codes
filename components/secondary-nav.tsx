@@ -14,7 +14,7 @@ export const SecondaryNav = () => {
     return null;
   }
 
-  if (pathName.startsWith("/projects")) {
+  if (pathName?.startsWith("/projects")) {
     return <ProjectNav />;
   }
 

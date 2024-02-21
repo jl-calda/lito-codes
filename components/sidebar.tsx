@@ -9,6 +9,8 @@ import {
   FaHouse,
   FaHandHolding,
   FaPaperPlane,
+  FaU,
+  FaS,
 } from "react-icons/fa6";
 
 import { Card, CardContent, CardHeader } from "./ui/card";
@@ -19,11 +21,12 @@ import { ReactElement } from "react";
 import { Input } from "./ui/input";
 import { useMediaQuery } from "@uidotdev/usehooks";
 import { SidebarSeparator } from "./sidebar-separator";
+import { IconType } from "react-icons/lib";
 
 type NavItem = {
   name: string;
   url: string;
-  icon: ReactElement<any, any>;
+  icon: IconType;
   live: boolean;
   active?: boolean;
 };
@@ -34,58 +37,58 @@ export const Sidebar = () => {
     {
       name: "Home",
       url: "/",
-      icon: <FaHouse className="h-4 w-4 mr-2" />,
+      icon: FaHouse,
       live: true,
       active: pathName === "/",
     },
     {
       name: "About",
       url: "/about",
-      icon: <FaUserLarge className="h-4 w-4 mr-2" />,
+      icon: FaUserLarge,
       live: true,
-      active: pathName.startsWith("/about"),
+      active: pathName?.startsWith("/about"),
     },
     {
       name: "Projects",
       url: "/projects",
-      icon: <FaCubesStacked className="h-4 w-4 mr-2" />,
+      icon: FaCubesStacked,
       live: true,
-      active: pathName.startsWith("/projects"),
+      active: pathName?.startsWith("/projects"),
     },
     {
       name: "Services",
       url: "/services",
-      icon: <FaHandHolding className="h-4 w-4 mr-2" />,
+      icon: FaHandHolding,
       live: true,
-      active: pathName.startsWith("/services"),
+      active: pathName?.startsWith("/services"),
     },
     {
       name: "Contact",
       url: "/contact",
-      icon: <FaMessage className="h-4 w-4 mr-2" />,
+      icon: FaMessage,
       live: true,
-      active: pathName.startsWith("/contact"),
+      active: pathName?.startsWith("/contact"),
     },
     {
       name: "Blog",
       url: "/blog",
-      icon: <FaBlogger className="h-4 w-4 mr-2" />,
+      icon: FaBlogger,
       live: true,
-      active: pathName.startsWith("/blog"),
+      active: pathName?.startsWith("/blog"),
     },
     {
       name: "Code",
       url: "/code",
-      icon: <FaCode className="h-4 w-4 mr-2" />,
+      icon: FaCode,
       live: true,
-      active: pathName.startsWith("/code"),
+      active: pathName?.startsWith("/code"),
     },
     {
       name: "Merch",
       url: "/merch",
-      icon: <FaShirt className="h-4 w-4 mr-2" />,
+      icon: FaShirt,
       live: false,
-      active: pathName.startsWith("/merch"),
+      active: pathName?.startsWith("/merch"),
     },
   ];
 
@@ -114,18 +117,17 @@ export const Sidebar = () => {
           {navitems.map((item) => (
             <Button
               variant={item.active ? "outline" : "secondary"}
-              size={isMobile ? "sm" : "default"}
-              className=""
+              size={isMobile ? "icon" : "default"}
               key={crypto.randomUUID()}
               disabled={!item.live}
               asChild={item.live}
             >
               <Link
                 href={item.url}
-                className="flex items-center"
+                className="flex items-center space-x-2"
               >
-                {item?.icon}
-                {item?.name}
+                <item.icon className="w-4 h-4" />
+                {!isMobile && <span>{item?.name}</span>}
               </Link>
             </Button>
           ))}
