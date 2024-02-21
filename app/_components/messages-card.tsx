@@ -51,7 +51,7 @@ export const MessagesCard = () => {
         {isConnected ? "true" : "false"}
       </CardFooter>
 
-      <AvatarPopover />
+      {/* <AvatarPopover /> */}
     </Card>
   );
 };

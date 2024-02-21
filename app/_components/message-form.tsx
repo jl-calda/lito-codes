@@ -20,6 +20,8 @@ import { Textarea } from "@/components/ui/textarea";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useSocket } from "@/components/providers/socket-provider";
+import { Avatar } from "@radix-ui/react-avatar";
+import AvatarPopover from "./avatar-popover";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -28,6 +30,8 @@ const MessageSchema = z.object({
 });
 export const MessageForm = () => {
   const [pending, startTransition] = useTransition();
+  const { setValue, watch } = useForm();
+  const avatar = watch("avatar");
   const { isConnected, socket } = useSocket();
   const router = useRouter();
   const form = useForm<z.infer<typeof MessageSchema>>({
@@ -40,16 +44,18 @@ export const MessageForm = () => {
   });
 
   const onSubmit = (data: z.infer<typeof MessageSchema>) => {
+    const updatedData = { ...data, avatar };
     if (!isConnected) {
       return;
     }
 
-    startTransition(() => {
-      axios
-        .post("/api/socket/send", data)
-        .then(() => form.reset())
-        .then(() => router.refresh());
-    });
+    console.log(updatedData);
+    // startTransition(() => {
+    //   axios
+    //     .post("/api/socket/send", data)
+    //     .then(() => form.reset())
+    //     .then(() => router.refresh());
+    // });
   };
 
   return (
@@ -58,27 +64,27 @@ export const MessageForm = () => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col h-full space-y-2"
       >
+        <div>AVatar,{avatar}</div>
+        <div>AVatar,{form.getValues("name")}</div>
         <div className="flex">
           <FormField
-            name="name"
+            name="avatar"
             control={form.control}
             render={({ field }) => (
               <FormItem>
                 <div className="flex items-center justify-between"></div>
                 <FormControl>
-                  <Input
+                  <AvatarPopover
+                    value={avatar || field.value}
+                    onSetValue={(value) => setValue("avatar", value)}
                     disabled={pending}
-                    {...field}
-                    className="bg-secondary"
-                    placeholder="Name"
-                    type="text"
                   />
                 </FormControl>
               </FormItem>
             )}
           />
           <FormField
-            name="avatar"
+            name="name"
             control={form.control}
             render={({ field }) => (
               <FormItem>
