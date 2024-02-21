@@ -56,93 +56,74 @@ export const MessageForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col h-full space-y-4"
+        className="flex flex-col h-full space-y-2"
       >
-        <FormField
-          name="name"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center justify-between">
-                <FormLabel>Name</FormLabel>
-                <FormMessage />
-              </div>
-              <FormControl>
-                <Input
-                  disabled={pending}
-                  {...field}
-                  className="bg-secondary"
-                  placeholder="Name"
-                  type="text"
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="avatar"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center justify-between">
-                <FormLabel>Avatar</FormLabel>
-                <FormMessage />
-              </div>
-              <FormControl>
-                <Input
-                  disabled={pending}
-                  {...field}
-                  className="bg-secondary"
-                  type="text"
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          name="message"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem className="flex-1 flex flex-col">
-              <div className="flex items-center justify-between">
-                <FormLabel>Message</FormLabel>
-                <FormMessage />
-              </div>
-              <FormControl>
-                <Textarea
-                  disabled={pending}
-                  {...field}
-                  className="bg-secondary flex-1"
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-
-        {/* <FormField
-          name="confirmation"
-          control={form.control}
-          render={({ field }) => (
-            <FormItem className="flex-1 flex flex-col">
-              <div className="flex items-center justify-between">
-                <FormLabel>Message</FormLabel>
-                <FormMessage />
-              </div>
-              <FormControl>
-                <Textarea
-                  {...field}
-                  className="bg-secondary flex-1"
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        /> */}
-        <Button
-          type="submit"
-          className="rounded-lg"
-        >
-          Send Message
-        </Button>
+        <div className="flex">
+          <FormField
+            name="name"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex items-center justify-between"></div>
+                <FormControl>
+                  <Input
+                    disabled={pending}
+                    {...field}
+                    className="bg-secondary"
+                    placeholder="Name"
+                    type="text"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+          <FormField
+            name="avatar"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex items-center justify-between">
+                  <FormMessage />
+                </div>
+                <FormControl>
+                  <Input
+                    disabled={pending}
+                    {...field}
+                    className="bg-secondary"
+                    type="text"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
+        <div className="flex space-x-2 items-center">
+          <FormField
+            name="message"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem className="flex-1 flex flex-col">
+                <div className="flex items-center justify-between">
+                  <FormMessage />
+                </div>
+                <FormControl>
+                  <Input
+                    disabled={pending}
+                    {...field}
+                    className="bg-secondary"
+                    type="text"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+          <Button
+            type="submit"
+            className="rounded-lg"
+          >
+            Send Message
+          </Button>
+        </div>
       </form>
       {/* <div className="flex items-center space-x-2 justify-end">
            

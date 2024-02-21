@@ -9,7 +9,8 @@ import { revalidatePath } from "next/cache";
 // export const revalidate = 1;
 
 const HomePage = async () => {
-  return <UnderConstruction />;
+  // return <UnderConstruction />;
+  return <MessagesCard />;
   return (
     <section className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1.2fr] gap-x-4 gap-y-4 md:py-4">
       <VisitingCard />

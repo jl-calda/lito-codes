@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { FaMessage, FaPaperPlane } from "react-icons/fa6";
 
 import {
   Card,
@@ -19,28 +20,56 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { FaMessage, FaPaperPlane } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const ContactSchema = z.object({
-  name: z.string(),
-  email: z.string().email(),
-  message: z.string(),
-  twoFactor: z.string(),
-});
+import { ContactMessage } from "@/schemas/contact-message";
+import { sendMessage } from "@/actions/contact/send-message";
+import { useState, useTransition } from "react";
+import { FormSuccess } from "./form-success";
+import { FormPending } from "./form-pending";
+import { FormError } from "./form-error";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 
 const Contact = () => {
-  const form = useForm<z.infer<typeof ContactSchema>>({
-    resolver: zodResolver(ContactSchema),
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const [pending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof ContactMessage>>({
+    resolver: zodResolver(ContactMessage),
     defaultValues: {
       name: "",
       email: "",
       message: "",
-      twoFactor: "",
     },
   });
+
+  const onSubmit = (data: z.infer<typeof ContactMessage>) => {
+    startTransition(() => {
+      sendMessage(data)
+        .then((res) => {
+          if (res.success) {
+            setSuccess(res.success);
+            form.reset();
+          }
+          if (res.error) {
+            form.reset();
+            setError(res.error);
+          }
+        })
+        .catch((err) => {
+          setError("Something went wrong. Please try again later.");
+        });
+    });
+  };
+
+  const onFocus = () => {
+    setSuccess("");
+    setError("");
+  };
+
   return (
     <Card className="flex flex-col order-1 md:order-none">
       <CardHeader>
@@ -54,7 +83,7 @@ const Contact = () => {
       </CardHeader>
       <Form {...form}>
         <form
-          onSubmit={() => {}}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col h-full"
         >
           <CardContent className="flex-1 flex space-y-4 flex-col">
@@ -69,6 +98,8 @@ const Contact = () => {
                   </div>
                   <FormControl>
                     <Input
+                      onFocus={onFocus}
+                      disabled={pending}
                       {...field}
                       className="bg-secondary"
                       type="text"
@@ -88,6 +119,8 @@ const Contact = () => {
                   </div>
                   <FormControl>
                     <Input
+                      onFocus={onFocus}
+                      disabled={pending}
                       {...field}
                       className="bg-secondary"
                       type="email"
@@ -110,6 +143,8 @@ const Contact = () => {
                   </div>
                   <FormControl>
                     <Textarea
+                      disabled={pending}
+                      onFocus={onFocus}
                       {...field}
                       className="bg-secondary flex-1"
                     />
@@ -121,6 +156,9 @@ const Contact = () => {
                 </FormItem>
               )}
             />
+            {success && <FormSuccess message={success} />}
+            {error && <FormError message={error} />}
+            {pending && <FormPending />}
           </CardContent>
           <CardFooter>
             <Button

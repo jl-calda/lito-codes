@@ -11,9 +11,16 @@ datasource db {
 }
 
 model VisitorMessage {
-  id        String  @id @default(uuid()) @map("_id")
-  name      String
-  avatar    String
-  message   String
-  createdAt DateTime @default(now())
+  id              String  @id @default(uuid()) @map("_id")
+  name            String
+  avatar          String
+  message         String
+  createdAt       DateTime @default(now())
+}
+model ContactMessage {
+  id              String  @id @default(uuid()) @map("_id")
+  name            String
+  email           String
+  message         String
+  createdAt       DateTime @default(now())
 }
