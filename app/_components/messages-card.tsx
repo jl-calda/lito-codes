@@ -13,7 +13,7 @@ import { MessageForm } from "./message-form";
 import { useSocket } from "@/components/providers/socket-provider";
 
 import { MessagesBoardClient } from "./messages-board-client";
-import AvatarDropdown from "./avatar-dropdown";
+import AvatarPopover from "./avatar-popover";
 
 export const MessagesCard = () => {
   const { isConnected } = useSocket();
@@ -51,7 +51,7 @@ export const MessagesCard = () => {
         {isConnected ? "true" : "false"}
       </CardFooter>
 
-      <AvatarDropdown />
+      <AvatarPopover />
     </Card>
   );
 };
