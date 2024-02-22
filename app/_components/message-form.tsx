@@ -1,29 +1,22 @@
 "use client";
 
 import * as z from "zod";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import React, { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { FaHand, FaPaperPlane } from "react-icons/fa6";
+
+import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useSocket } from "@/components/providers/socket-provider";
-import { Avatar } from "@radix-ui/react-avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import { CardTitle } from "@/components/card-title";
 import AvatarPopover from "./avatar-popover";
-import { FaHand, FaP, FaPaperPlane, FaRegHandSpock } from "react-icons/fa6";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
+import { useSocket } from "@/components/providers/socket-provider";
+import axios from "axios";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -40,37 +33,28 @@ export const MessageForm = () => {
     resolver: zodResolver(MessageSchema),
     defaultValues: {
       name: "",
-      avatar: "",
+      avatar: "https://xsgames.co/randomusers/assets/avatars/pixel/50.jpg",
       message: "",
     },
   });
 
   const onSubmit = (data: z.infer<typeof MessageSchema>) => {
-    const updatedData = { ...data, avatar };
-    if (!isConnected) {
-      return;
-    }
+    const updatedData = { ...data, avatar: avatar || data.avatar };
 
-    console.log(updatedData);
-    // startTransition(() => {
-    //   axios
-    //     .post("/api/socket/send", data)
-    //     .then(() => form.reset())
-    //     .then(() => router.refresh());
-    // });
+    startTransition(() => {
+      axios.post("/api/socket/send", updatedData).then(() => {
+        form.reset();
+      });
+    });
   };
 
   return (
     <Card className="w-72">
-      <CardHeader>
-        <h3 className="text-2xl font-bold flex items-center">
-          <FaHand className="w-6 h-6 mr-2 text-primary" />
-          Say hi!
-        </h3>
-        <p className="text-sm text-muted-foreground">
-          Add a message to my visitors board.
-        </p>
-      </CardHeader>
+      <CardTitle
+        icon={FaHand}
+        title="Say hi!"
+        subtitle="Join my message board"
+      />
       <CardContent>
         <Form {...form}>
           <form
@@ -133,9 +117,6 @@ export const MessageForm = () => {
               <FaPaperPlane />
             </Button>
           </form>
-          {/* <div className="flex items-center space-x-2 justify-end">
-           
-            </div> */}
         </Form>
       </CardContent>
     </Card>

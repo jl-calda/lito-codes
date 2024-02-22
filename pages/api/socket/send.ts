@@ -13,6 +13,7 @@ export default async function handler(
     });
   }
 
+  console.log(req.body);
   try {
     const { message, name, avatar } = req.body;
 
@@ -30,7 +31,7 @@ export default async function handler(
       },
     });
 
-    // res.socket.server.io.emit("message", newMessage);
+    res.socket.server.io.emit("new-message", newMessage);
 
     return res.status(201).json(newMessage);
   } catch (error) {

@@ -12,7 +12,6 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { MessageForm } from "./message-form";
 import { useSocket } from "@/components/providers/socket-provider";
 
-import { MessagesBoardClient } from "./messages-board-client";
 import AvatarPopover from "./avatar-popover";
 
 export const MessagesCard = () => {
@@ -44,7 +43,6 @@ export const MessagesCard = () => {
             </AspectRatio>
             <MessageForm />
           </div>
-          <MessagesBoardClient />
         </div>
       </CardContent>
       <CardFooter className="text-black">
