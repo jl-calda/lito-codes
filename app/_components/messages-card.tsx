@@ -31,7 +31,7 @@ export const MessagesCard = () => {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-[1fr_1.5fr]">
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col">
             <AspectRatio
               ratio={16 / 9}
               className="rounded-lg overflow-hidden"

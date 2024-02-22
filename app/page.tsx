@@ -5,12 +5,13 @@ import { StalkingCard } from "./_components/stalking-card";
 import { MessagesCard } from "./_components/messages-card";
 import { getMessages } from "@/actions/get-messages";
 import { revalidatePath } from "next/cache";
+import { MessageForm } from "./_components/message-form";
 
 // export const revalidate = 1;
 
 const HomePage = async () => {
   // return <UnderConstruction />;
-  return <MessagesCard />;
+  return <MessageForm />;
   return (
     <section className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1.2fr] gap-x-4 gap-y-4 md:py-4">
       <VisitingCard />

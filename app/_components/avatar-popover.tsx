@@ -5,8 +5,8 @@ import {
 } from "@/components/ui/popover";
 
 import Image from "next/image";
-import { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { useState, useTransition } from "react";
+import { FaArrowLeft, FaArrowRight, FaS, FaSpinner } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,10 +20,11 @@ interface AvatarPopoverProps {
 
 const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
   const [page, setPage] = useState(1);
+  const [pending, startTransition] = useTransition();
 
-  const page_1 = Array.from({ length: 20 }, (_, index) => index);
-  const page_2 = Array.from({ length: 20 }, (_, index) => index + 20);
-  const page_3 = Array.from({ length: 20 }, (_, index) => index + 40);
+  const page_1 = Array.from({ length: 16 }, (_, index) => index);
+  const page_2 = Array.from({ length: 16 }, (_, index) => index + 16);
+  const page_3 = Array.from({ length: 16 }, (_, index) => index + 32);
 
   const onPreviousPage = () => {
     if (page > 1) {
@@ -41,27 +42,42 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
     }
   };
 
+  const onAvatarClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
+    startTransition(() => {
+      onSetValue((e.target as HTMLImageElement).src);
+    });
+  };
+
   return (
     <Popover>
-      <PopoverTrigger disabled={disabled}>
-        <Avatar
-          onClick={() => console.log("clicked")}
-          className="w-[50px] h-[50px]"
-        >
-          <AvatarImage src={value} />
+      <PopoverTrigger
+        disabled={disabled}
+        className="block"
+      >
+        <Avatar className="h-14 w-14 rounded-lg">
+          {pending ? (
+            <div className="flex items-center justify-center w-full animate-pulse bg-white">
+              <FaSpinner className="w-8 h-8 animate-spin-slow text-muted-foreground" />
+            </div>
+          ) : (
+            <AvatarImage src={value} />
+          )}
           <AvatarFallback>
             <Image
               src="https://xsgames.co/randomusers/assets/avatars/pixel/50.jpg"
               alt="Avatar"
-              width={50}
-              height={50}
-              className="rounded-full"
+              width={56}
+              height={56}
+              className=""
             />
           </AvatarFallback>
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col space-y-4">
-        <Tabs defaultValue="male">
+      <PopoverContent className="flex flex-col space-y-4 bg-primary text-muted">
+        <Tabs
+          defaultValue="male"
+          className="bg-primary"
+        >
           <TabsList className="w-full flex justify-between">
             <TabsTrigger
               className="flex w-full"
@@ -75,6 +91,12 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
             >
               Female
             </TabsTrigger>
+            <TabsTrigger
+              className="flex w-full"
+              value="pixel"
+            >
+              Pixel
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="male">
             {page === 1 && (
@@ -85,15 +107,10 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                     data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => {
-                      onSetValue((e.target as HTMLImageElement).dataset.src!);
-                      // onSetValue((e.target as HTMLImageElement).dataset.src!);
-                    }}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -103,14 +120,13 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_2.map((index) => (
                   <Image
                     key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => onSetValue((e.target as HTMLImageElement).src)}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -120,14 +136,63 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_3.map((index) => (
                   <Image
                     key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => onSetValue((e.target as HTMLImageElement).src)}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
+                  />
+                ))}
+              </div>
+            )}
+          </TabsContent>
+          <TabsContent value="pixel">
+            {page === 1 && (
+              <div className="grid grid-cols-4 gap-y-1 gap-x-1 place-content-center">
+                {page_1.map((index) => (
+                  <Image
+                    key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    alt={`Avatar ${index}`}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
+                  />
+                ))}
+              </div>
+            )}
+            {page === 2 && (
+              <div className="grid grid-cols-4 gap-y-1 gap-x-1 place-content-center">
+                {page_2.map((index) => (
+                  <Image
+                    key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    alt={`Avatar ${index}`}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
+                  />
+                ))}
+              </div>
+            )}
+            {page === 3 && (
+              <div className="grid grid-cols-4 gap-y-1 gap-x-1 place-content-center">
+                {page_3.map((index) => (
+                  <Image
+                    key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
+                    alt={`Avatar ${index}`}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -139,14 +204,13 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_1.map((index) => (
                   <Image
                     key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => onSetValue((e.target as HTMLImageElement).src)}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -156,14 +220,13 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_2.map((index) => (
                   <Image
                     key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => onSetValue((e.target as HTMLImageElement).src)}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -173,14 +236,13 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_3.map((index) => (
                   <Image
                     key={index}
+                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
                     alt={`Avatar ${index}`}
-                    className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
-                    width={50}
-                    height={50}
-                    onClick={(
-                      e: React.MouseEvent<HTMLImageElement, MouseEvent>
-                    ) => onSetValue((e.target as HTMLImageElement).src)}
+                    className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
+                    width={56}
+                    height={56}
+                    onClick={onAvatarClick}
                   />
                 ))}
               </div>
@@ -197,7 +259,7 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
           >
             <FaArrowLeft className="w-4 h-4" />
           </Button>
-          <span className="text-muted-foreground text-xs">{`Page ${page}`}</span>
+          <span className="text-sm">{`Page ${page}`}</span>
           <Button
             variant="outline"
             size="icon"

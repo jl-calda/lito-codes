@@ -22,6 +22,8 @@ import { useRouter } from "next/navigation";
 import { useSocket } from "@/components/providers/socket-provider";
 import { Avatar } from "@radix-ui/react-avatar";
 import AvatarPopover from "./avatar-popover";
+import { FaHand, FaP, FaPaperPlane, FaRegHandSpock } from "react-icons/fa6";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -59,81 +61,83 @@ export const MessageForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col h-full space-y-2"
-      >
-        <div>AVatar,{avatar}</div>
-        <div>AVatar,{form.getValues("name")}</div>
-        <div className="flex">
-          <FormField
-            name="avatar"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <div className="flex items-center justify-between"></div>
-                <FormControl>
-                  <AvatarPopover
-                    value={avatar || field.value}
-                    onSetValue={(value) => setValue("avatar", value)}
-                    disabled={pending}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <FormField
-            name="name"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem>
-                <div className="flex items-center justify-between">
-                  <FormMessage />
-                </div>
-                <FormControl>
-                  <Input
-                    disabled={pending}
-                    {...field}
-                    className="bg-secondary"
-                    type="text"
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-        </div>
-        <div className="flex space-x-2 items-center">
-          <FormField
-            name="message"
-            control={form.control}
-            render={({ field }) => (
-              <FormItem className="flex-1 flex flex-col">
-                <div className="flex items-center justify-between">
-                  <FormMessage />
-                </div>
-                <FormControl>
-                  <Input
-                    disabled={pending}
-                    {...field}
-                    className="bg-secondary"
-                    type="text"
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <Button
-            type="submit"
-            className="rounded-lg"
+    <Card className="w-72">
+      <CardHeader>
+        <h3 className="text-2xl font-bold flex items-center">
+          <FaHand className="w-6 h-6 mr-2 text-primary" />
+          Say hi!
+        </h3>
+        <p className="text-sm text-muted-foreground">
+          Add a message to my visitors board.
+        </p>
+      </CardHeader>
+      <CardContent>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="grid grid-cols-[1fr_2.5fr_1fr] space-y-0 gap-x-2 gap-y-2 place-content-stretch"
           >
-            Send Message
-          </Button>
-        </div>
-      </form>
-      {/* <div className="flex items-center space-x-2 justify-end">
+            <FormField
+              name="avatar"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="space-y-0">
+                  <FormControl>
+                    <AvatarPopover
+                      value={avatar || field.value}
+                      onSetValue={(value) => setValue("avatar", value)}
+                      disabled={pending}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              name="name"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="col-span-2 space-y-0">
+                  <FormControl>
+                    <Input
+                      disabled={pending}
+                      {...field}
+                      className="rounded-lg bg-background h-14 focus-visible:ring-0 col-span-2"
+                      type="text"
+                      placeholder="Your Name"
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              name="message"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="col-span-2 space-y-0">
+                  <FormControl>
+                    <Textarea
+                      disabled={pending}
+                      {...field}
+                      className="rounded-lg bg-background h-14 focus-visible:ring-0 col-span-2"
+                      placeholder="Message"
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button
+              type="submit"
+              className="rounded-lg h-full w-full"
+            >
+              <FaPaperPlane />
+            </Button>
+          </form>
+          {/* <div className="flex items-center space-x-2 justify-end">
            
             </div> */}
-    </Form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };
