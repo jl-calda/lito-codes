@@ -13,7 +13,6 @@ export default async function handler(
     });
   }
 
-  console.log(req.body);
   try {
     const { message, name, avatar } = req.body;
 

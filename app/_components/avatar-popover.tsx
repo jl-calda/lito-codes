@@ -20,6 +20,7 @@ interface AvatarPopoverProps {
 
 const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
   const [page, setPage] = useState(1);
+  const [open, setOpen] = useState(false);
   const [pending, startTransition] = useTransition();
 
   const page_1 = Array.from({ length: 16 }, (_, index) => index);
@@ -45,14 +46,16 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
   const onAvatarClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     startTransition(() => {
       onSetValue((e.target as HTMLImageElement).src);
+      setOpen(false);
     });
   };
 
   return (
-    <Popover>
+    <Popover open={open}>
       <PopoverTrigger
         disabled={disabled}
         className="block"
+        onClick={() => setOpen(!open)}
       >
         <Avatar className="h-14 w-14 rounded-lg">
           {pending ? (

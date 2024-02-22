@@ -15,20 +15,23 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CardTitle } from "@/components/card-title";
 import AvatarPopover from "./avatar-popover";
 
-import { useSocket } from "@/components/providers/socket-provider";
 import axios from "axios";
+import { cn } from "@/lib/utils";
 
 const MessageSchema = z.object({
   name: z.string(),
   avatar: z.string(),
   message: z.string().min(3),
 });
-export const MessageForm = () => {
+
+interface MessageFormProps {
+  className?: string;
+}
+
+export const MessageForm = ({ className }: MessageFormProps) => {
   const [pending, startTransition] = useTransition();
   const { setValue, watch } = useForm();
   const avatar = watch("avatar");
-  const { isConnected, socket } = useSocket();
-  const router = useRouter();
   const form = useForm<z.infer<typeof MessageSchema>>({
     resolver: zodResolver(MessageSchema),
     defaultValues: {
@@ -49,7 +52,7 @@ export const MessageForm = () => {
   };
 
   return (
-    <Card className="w-72">
+    <Card className={cn(className)}>
       <CardTitle
         icon={FaHand}
         title="Say hi!"
@@ -59,63 +62,66 @@ export const MessageForm = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="grid grid-cols-[1fr_2.5fr_1fr] space-y-0 gap-x-2 gap-y-2 place-content-stretch"
+            className="flex flex-col space-y-2"
           >
-            <FormField
-              name="avatar"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem className="space-y-0">
-                  <FormControl>
-                    <AvatarPopover
-                      value={avatar || field.value}
-                      onSetValue={(value) => setValue("avatar", value)}
-                      disabled={pending}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              name="name"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem className="col-span-2 space-y-0">
-                  <FormControl>
-                    <Input
-                      disabled={pending}
-                      {...field}
-                      className="rounded-lg bg-background h-14 focus-visible:ring-0 col-span-2"
-                      type="text"
-                      placeholder="Your Name"
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              name="message"
-              control={form.control}
-              render={({ field }) => (
-                <FormItem className="col-span-2 space-y-0">
-                  <FormControl>
-                    <Textarea
-                      disabled={pending}
-                      {...field}
-                      className="rounded-lg bg-background h-14 focus-visible:ring-0 col-span-2"
-                      placeholder="Message"
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              className="rounded-lg h-full w-full"
-            >
-              <FaPaperPlane />
-            </Button>
+            <div className="flex flex-row space-x-2 items-center">
+              <FormField
+                name="avatar"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem className="space-y-0">
+                    <FormControl>
+                      <AvatarPopover
+                        value={avatar || field.value}
+                        onSetValue={(value) => setValue("avatar", value)}
+                        disabled={pending}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                name="name"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <Input
+                        disabled={pending}
+                        {...field}
+                        className="rounded-lg bg-background h-14 focus-visible:ring-0"
+                        type="text"
+                        placeholder="Your Name"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex flex-row items-center space-x-2">
+              <FormField
+                name="message"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormControl>
+                      <Textarea
+                        disabled={pending}
+                        {...field}
+                        className="rounded-lg bg-background h-14 focus-visible:ring-0"
+                        placeholder="Minimum 3 characters."
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                className="rounded-lg h-14 w-14"
+              >
+                <FaPaperPlane />
+              </Button>
+            </div>
           </form>
         </Form>
       </CardContent>
