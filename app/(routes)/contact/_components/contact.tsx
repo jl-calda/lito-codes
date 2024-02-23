@@ -5,12 +5,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FaMessage, FaPaperPlane } from "react-icons/fa6";
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
   Form,
   FormControl,
@@ -30,10 +25,14 @@ import { useState, useTransition } from "react";
 import { FormSuccess } from "./form-success";
 import { FormPending } from "./form-pending";
 import { FormError } from "./form-error";
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { CardTitle } from "@/components/card-title";
+import { cn } from "@/lib/utils";
 
-const Contact = () => {
+interface ContactProps {
+  className?: string;
+}
+
+const Contact = ({ className }: ContactProps) => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [pending, startTransition] = useTransition();
@@ -72,7 +71,7 @@ const Contact = () => {
   };
 
   return (
-    <Card className="flex flex-col order-1 md:order-none">
+    <Card className={cn("flex flex-col order-1 md:order-none", className)}>
       <CardTitle
         title="Contact"
         subtitle="Fill up the form below and send me a message!"

@@ -52,12 +52,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
   };
 
   return (
-    <Card
-      className={cn(
-        className,
-        "bg-gradient-to-br from-secondary to-primary/20 bg-transparent"
-      )}
-    >
+    <Card className={cn("", className)}>
       <CardTitle
         icon={FaHand}
         title="Say hi!"

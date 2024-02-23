@@ -13,6 +13,7 @@ import { Button } from "../../../../components/ui/button";
 
 import Link from "next/link";
 import { CardBanner } from "../../../../components/card-banner";
+import { CardTitle } from "@/components/card-title";
 
 interface FeaturedProjectCardProps {
   data: Project[];
@@ -21,19 +22,13 @@ interface FeaturedProjectCardProps {
 export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
   const feature = data[0];
   return (
-    <Card className="relative bg-secondary">
-      <CardHeader className="">
-        <Button
-          variant="link"
-          asChild
-          className="text-primary w-fit p-0"
-        >
-          <Link href={`/projects/${feature.slug}`}>
-            <h2 className="text-2xl font-bold text-primary">{feature.name}</h2>
-          </Link>
-        </Button>
-        <p className="text-muted-foreground text-sm">{feature.description}</p>
-      </CardHeader>
+    <Card className="relative">
+      <CardTitle
+        title={feature.name}
+        subtitle={feature.description}
+        href={`/projects/${feature.slug}`}
+      />
+
       <CardContent className="grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-x-4 gap-y-4">
         <Link
           href={`/video?url=${feature.images.video?.replace("/", "%2F")}`}
@@ -45,7 +40,7 @@ export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
             muted
             loop
             playsInline
-            className="rounded-lg h-full w-full object-cover object-left hover:scale-105 transition-transform duration-300 cursor-pointer"
+            className="rounded-lg h-full w-full object-cover object-left hover:scale-[102%] transition-transform duration-300 cursor-pointer"
           />
         </Link>
         <div className="grid md:grid-rows-3 grid-cols-3 md:grid-cols-1 gap-y-2 gap-x-2">
@@ -62,7 +57,7 @@ export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
                   src={image}
                   alt={feature.name}
                   fill
-                  className="rounded-lg object-cover object-center hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  className="rounded-lg object-cover object-center hover:scale-[102%] transition-transform duration-300 cursor-pointer"
                 />
               </AspectRatio>
             </Link>
