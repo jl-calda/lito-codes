@@ -1,26 +1,18 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { FaDownload, FaThumbsUp } from "react-icons/fa6";
+import { CardTitle } from "@/components/card-title";
 
 const HireMe = () => {
   return (
     <Card>
-      <CardHeader>
-        <h2 className="text-2xl font-bold flex items-center">
-          <FaThumbsUp className="h-6 w-6 mr-2" />
-          Hire Me Instead
-        </h2>
-        <p className="text-muted-foreground text-sm">
-          Current looking for a job. I'm open for any opportunities.🧑‍💻
-        </p>
-      </CardHeader>
+      <CardTitle
+        title="Hire Me"
+        subtitle="Looking for a job"
+        icon={FaThumbsUp}
+      />
       <CardContent>
         <Button
           variant="secondary"

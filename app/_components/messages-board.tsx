@@ -13,6 +13,7 @@ import { ChatPill } from "./chat-pill";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { CardBanner } from "@/components/card-banner";
 import { cn } from "@/lib/utils";
+import { BackgroundGradientAnimation } from "@/components/animated/background-gradient";
 
 interface MessagesBoardProps {
   className?: string;
@@ -62,6 +63,7 @@ export const MessagesBoard = ({ className }: MessagesBoardProps) => {
 
   return (
     <Card className={cn(className, "relative")}>
+      {/* <BackgroundGradientAnimation> */}
       <CardTitle
         icon={FaStackExchange}
         title="Visitors' Message Board"
@@ -92,6 +94,7 @@ export const MessagesBoard = ({ className }: MessagesBoardProps) => {
         </ScrollArea>
       </CardContent>
       <CardBanner text={`${!messages ? "counting" : messages.length} msgs`} />
+      {/* </BackgroundGradientAnimation> */}
     </Card>
   );
 };

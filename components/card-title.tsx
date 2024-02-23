@@ -12,21 +12,37 @@ interface CardTitleProps {
   icon: IconType;
   title: string;
   subtitle: string;
+  muted?: boolean;
 }
 
-export const CardTitle = ({ icon: Icon, title, subtitle }: CardTitleProps) => {
+export const CardTitle = ({
+  icon: Icon,
+  title,
+  subtitle,
+  muted,
+}: CardTitleProps) => {
   return (
     <CardHeader>
       <h3
         className={cn(
           font.className,
+          muted ? "text-muted" : "",
           "text-2xl font-semibold flex items-center"
         )}
       >
-        <Icon className="w-6 h-6 mr-2 text-primary" />
+        <Icon
+          className={cn(muted ? "text-muted" : "text-primary", "w-6 h-6 mr-2")}
+        />
         {title}
       </h3>
-      <p className="text-sm text-muted-foreground">{subtitle}</p>
+      <p
+        className={cn(
+          muted ? "text-muted" : "text-muted-foreground",
+          "text-sm"
+        )}
+      >
+        {subtitle}
+      </p>
     </CardHeader>
   );
 };

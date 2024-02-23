@@ -18,7 +18,7 @@ import { BlogCard } from "./_components/blog-card";
 const HomePage = async () => {
   // return <UnderConstruction />;
   return (
-    <section className="grid grid-cols-[1fr_1fr_0.8fr_0.3fr] grid-rows-[0.5fr_1.2fr_0.5fr_0.2fr] gap-x-6 gap-y-6">
+    <section className="grid grid-cols-[1fr_1fr_0.8fr_0.3fr] grid-rows-[0.5fr_1.2fr_0.5fr_0.2fr] gap-x-6 gap-y-6 pt-20">
       <MainCard className="col-span-2 row-span-2" />
       <MessageForm />
       <ThemeCard />

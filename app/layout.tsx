@@ -7,6 +7,7 @@ import { Exo } from "next/font/google";
 
 import "./globals.css";
 import { Footer } from "@/components/footer";
+import { BackgroundGradientAnimation } from "@/components/animated/background-gradient";
 
 const font = Exo({
   weight: ["300", "400", "500", "600", "700"],
@@ -36,6 +37,7 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
             <Header />
             <HeroSection />
             {/* <Separator /> */}
+
             <main className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
               {children}
               <Footer />

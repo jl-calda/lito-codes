@@ -1,21 +1,18 @@
 import Image from "next/image";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { FaCoffee } from "react-icons/fa";
+import { CardTitle } from "@/components/card-title";
 
 export const BuyCoffee = () => {
   return (
     <Card className="flex-1 flex flex-col">
-      <CardHeader>
-        <h2 className="text-2xl font-bold flex items-center">
-          <FaCoffee className="h-6 w-6 mr-2" />
-          Buy me a coffee
-        </h2>
-        <p className="text-muted-foreground text-sm">
-          Your donation will keep caffein in my veins. ☕
-        </p>
-      </CardHeader>
+      <CardTitle
+        title="Buy me a coffee"
+        subtitle="Your donation will keep caffein in my veins. ☕"
+        icon={FaCoffee}
+      />
       <CardContent
         className="py-4 md:pt-6 rounded-lg flex-1 flex items-center justify-center"
         style={{

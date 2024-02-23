@@ -48,7 +48,7 @@ export const SectionHeader = () => {
           </Button>
           <h2
             className={cn(
-              "text-md md:text-lg font-medium text-muted-foreground font-mono"
+              "md:text-lg font-medium text-muted-foreground font-mono text-md",
             )}
           >
             {navItems[pathName as keyof typeof navItems]}

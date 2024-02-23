@@ -31,6 +31,7 @@ import { FormSuccess } from "./form-success";
 import { FormPending } from "./form-pending";
 import { FormError } from "./form-error";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { CardTitle } from "@/components/card-title";
 
 const Contact = () => {
   const [success, setSuccess] = useState("");
@@ -72,15 +73,12 @@ const Contact = () => {
 
   return (
     <Card className="flex flex-col order-1 md:order-none">
-      <CardHeader>
-        <h2 className="text-2xl font-bold flex items-center">
-          <FaMessage className="h-6 w-6 mr-2" />
-          Contact
-        </h2>
-        <p className="text-muted-foreground text-sm">
-          Fill up the form below and send me a message!
-        </p>
-      </CardHeader>
+      <CardTitle
+        title="Contact"
+        subtitle="Fill up the form below and send me a message!"
+        icon={FaMessage}
+      />
+
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}

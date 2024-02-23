@@ -3,20 +3,17 @@ import { FaDownload, FaMagnifyingGlass, FaMessage } from "react-icons/fa6";
 
 import { CardBanner } from "@/components/card-banner";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { CardTitle } from "@/components/card-title";
 
 export const Background = () => {
   return (
     <Card className="md:col-span-2 relative">
-      <CardHeader>
-        <h3 className="text-xl font-semibold flex items-center">
-          <FaMagnifyingGlass className="h-6 w-6 mr-2 text-primary" />
-          Background
-        </h3>
-        <p className="text-muted-foreground text-sm">
-          Brief summary about me and work experience
-        </p>
-      </CardHeader>
+      <CardTitle
+        title="Background"
+        subtitle="Brief summary about me and work experience"
+        icon={FaMagnifyingGlass}
+      />
       <CardContent>
         <p className="text-base text-muted-foreground leading-7 tracking-wide">
           I am Joselito <span className="font-bold text-primary">"Joey"</span>{" "}

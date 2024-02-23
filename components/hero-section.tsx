@@ -18,7 +18,7 @@ export const HeroSection = () => {
         <p>
           👋 hi! I am{" "}
           <span
-            className="text-transparent bg-clip-text"
+            className="text-transparent bg-clip-text tracking-normal"
             style={{
               backgroundImage: "var(--gradient)",
             }}
@@ -29,7 +29,7 @@ export const HeroSection = () => {
         <p>
           software
           <span
-            className="text-transparent bg-clip-text"
+            className="text-transparent bg-clip-text tracking-normal"
             style={{
               backgroundImage: "var(--gradient)",
             }}
@@ -40,7 +40,7 @@ export const HeroSection = () => {
         <p>
           based in
           <span
-            className="text-transparent bg-clip-text"
+            className="text-transparent bg-clip-text tracking-normal"
             style={{
               backgroundImage: "var(--gradient)",
             }}
