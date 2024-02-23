@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
 export const BackgroundGradientAnimation = ({
-  gradientBackgroundStart = "rgb(255, 255, 255)",
-  gradientBackgroundEnd = "rgb(255, 240, 240)",
+  // gradientBackgroundStart = "rgb(255, 255, 255)",
+  // gradientBackgroundEnd = "rgb(255, 240, 240)",
   firstColor = "18, 113, 255",
   secondColor = "221, 74, 255",
   thirdColor = "100, 220, 255",
@@ -41,14 +41,14 @@ export const BackgroundGradientAnimation = ({
   const [tgY, setTgY] = useState(0);
 
   useEffect(() => {
-    document.body.style.setProperty(
-      "--gradient-background-start",
-      gradientBackgroundStart
-    );
-    document.body.style.setProperty(
-      "--gradient-background-end",
-      gradientBackgroundEnd
-    );
+    // document.body.style.setProperty(
+    //   "--gradient-background-start",
+    //   gradientBackgroundStart
+    // );
+    // document.body.style.setProperty(
+    //   "--gradient-background-end",
+    //   gradientBackgroundEnd
+    // );
     document.body.style.setProperty("--first-color", firstColor);
     document.body.style.setProperty("--second-color", secondColor);
     document.body.style.setProperty("--third-color", thirdColor);
@@ -110,8 +110,8 @@ export const BackgroundGradientAnimation = ({
           </filter>
         </defs>
       </svg>
-      <div className={cn("", className)}>{children}</div>
-      <div className="gradients-container [filter:url(#blurMe)_blur(40px)] h-full w-full">
+      <div className={cn("z-50", className)}>{children}</div>
+      <div className="absolute inset-0 gradients-container [filter:url(#blurMe)_blur(40px)]">
         <div
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,

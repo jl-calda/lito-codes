@@ -24,26 +24,29 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
       lang="en"
       suppressHydrationWarning={true}
     >
-      <body
-        className={cn(font.className, "min-h-full flex flex-col items-center")}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+      <body className={cn(font.className, "min-h-full")}>
+        <BackgroundGradientAnimation
+          containerClassName="flex"
+          className="w-full items-center flex flex-col z-10"
         >
-          <SocketProvider>
-            <Header />
-            <HeroSection />
-            {/* <Separator /> */}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SocketProvider>
+              <Header />
+              <HeroSection />
+              {/* <Separator /> */}
 
-            <main className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
-              {children}
-              <Footer />
-            </main>
-          </SocketProvider>
-        </ThemeProvider>
+              <main className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
+                {children}
+                <Footer />
+              </main>
+            </SocketProvider>
+          </ThemeProvider>
+        </BackgroundGradientAnimation>
       </body>
     </html>
   );

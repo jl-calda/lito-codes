@@ -10,7 +10,7 @@ interface MainCardProps {
 
 export const MainCard = ({ className }: MainCardProps) => {
   return (
-    <Card className={cn(className, "overflow-clip bg-transparent")}>
+    <Card className={cn("", className)}>
       <CardTitle
         title="Design and branding services"
         subtitle="We offer a wide range of services to help you get the best out of your brand."

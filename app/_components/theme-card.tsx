@@ -6,12 +6,5 @@ interface ThemeCardProps {
 }
 
 export const ThemeCard = ({ className }: ThemeCardProps) => {
-  return (
-    <Card
-      style={{
-        backgroundImage: "var(--gradient)",
-      }}
-      className={cn(className)}
-    ></Card>
-  );
+  return <Card className={cn(className)}></Card>;
 };

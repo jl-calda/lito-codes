@@ -32,9 +32,9 @@ export default function RootLayout({
           </Suspense>
         </div>
         <div className="flex flex-col space-y-2">
-          <ClientOnly>
+          {/* <ClientOnly>
             <SectionHeader />
-          </ClientOnly>
+          </ClientOnly> */}
           {children}
         </div>
       </div>
