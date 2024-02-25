@@ -103,7 +103,7 @@ export const BackgroundGradientAnimation = ({
       <div className="absolute inset-0 gradients-container [filter:url(#blurMe)_blur(40px)] bg-transparent">
         <div
           className={cn(
-            `absolute [background:radial-gradient(circle_at_center,_var(--primary)_0,_var(--first-color)_50%)_no-repeat]`,
+            `absolute [background:radial-gradient(circle_at_center,_rgba(var(--first-color),0.8),_0,_rgba(var(--first-color),_0)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--width)] h-[var(--height)] top-[calc(50%-var(--height)/2)] left-[calc(50%-var(--width)/2)]`,
             `[transform-origin:center_center]`,
             `animate-first`,

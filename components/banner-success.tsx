@@ -12,7 +12,8 @@ export const BannerSuccess = ({ message }: BannerSuccessProps) => {
   return (
     <div
       className={cn(
-        "absolute top-2 right-2 px-4 py-1  font-medium text-xs font-mono"
+        "bg-green-500 text-white",
+        "absolute top-2 right-2 px-4 py-1 font-medium text-xs font-mono"
       )}
     >
       {message}
