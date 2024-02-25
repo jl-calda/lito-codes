@@ -1,3 +1,5 @@
+"use client";
+
 import { UnderConstruction } from "@/components/under-construction";
 import { VisitingCard } from "./_components/visiting-card";
 import { ServicesCard } from "./_components/services-card";
