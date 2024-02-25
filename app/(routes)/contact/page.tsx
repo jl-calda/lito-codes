@@ -1,3 +1,5 @@
+"use client";
+
 import HireMe from "./_components/hire-me";
 import { BuyCoffee } from "./_components/buy-coffee";
 import Contact from "./_components/contact";
