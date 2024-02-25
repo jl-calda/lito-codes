@@ -35,16 +35,16 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
             enableSystem
             disableTransitionOnChange
           >
-            <SocketProvider>
-              <Header />
-              <HeroSection />
-              {/* <Separator /> */}
+            {/* <SocketProvider> */}
+            <Header />
+            <HeroSection />
+            {/* <Separator /> */}
 
-              <main className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
-                {children}
-                <Footer />
-              </main>
-            </SocketProvider>
+            <div className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
+              <div>{children}</div>
+              <Footer />
+            </div>
+            {/* </SocketProvider> */}
           </ThemeProvider>
         </BackgroundGradientAnimation>
       </body>

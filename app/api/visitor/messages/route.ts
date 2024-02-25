@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
+import { NextResponse } from "next/server";
 
-export const messages = async () => {
+export async function GET() {
   try {
     const messages = await db.visitorMessage.findMany({
       orderBy: {
@@ -9,9 +10,8 @@ export const messages = async () => {
     });
 
     if (!messages) return null;
-
-    return messages;
+    return NextResponse.json(messages);
   } catch {
     return null;
   }
-};
+}

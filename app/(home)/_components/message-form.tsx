@@ -1,10 +1,9 @@
 "use client";
 
 import * as z from "zod";
-import React, { useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { FaHand, FaPaperPlane } from "react-icons/fa6";
 
 import { Button } from "@/components/ui/button";
@@ -17,6 +16,8 @@ import AvatarPopover from "./avatar-popover";
 
 import axios from "axios";
 import { cn } from "@/lib/utils";
+import { send } from "@/actions/visitor/send";
+import { useRouter } from "next/navigation";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -29,6 +30,9 @@ interface MessageFormProps {
 }
 
 export const MessageForm = ({ className }: MessageFormProps) => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const router = useRouter();
   const [pending, startTransition] = useTransition();
   const { setValue, watch } = useForm();
   const avatar = watch("avatar");
@@ -45,9 +49,20 @@ export const MessageForm = ({ className }: MessageFormProps) => {
     const updatedData = { ...data, avatar: avatar || data.avatar };
 
     startTransition(() => {
-      axios.post("/api/socket/send", updatedData).then(() => {
-        form.reset();
-      });
+      send(updatedData)
+        .then((data) => {
+          if (data.error) {
+            setError(data.error);
+          }
+          if (data.success) {
+            form.reset();
+            router.refresh();
+            setSuccess(data.success);
+          }
+        })
+        .catch((error) => {
+          setError("An error occurred");
+        });
     });
   };
 
@@ -58,6 +73,8 @@ export const MessageForm = ({ className }: MessageFormProps) => {
         title="Say hi!"
         subtitle="Join my message board. Choose an avatar!"
       />
+      {}
+
       <CardContent>
         <Form {...form}>
           <form

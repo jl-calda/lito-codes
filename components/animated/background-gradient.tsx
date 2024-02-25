@@ -74,7 +74,7 @@ export const BackgroundGradientAnimation = ({
   };
 
   return (
-    <div className={cn("relative overflow-hidden", containerClassName)}>
+    <main className={cn("relative overflow-hidden", containerClassName)}>
       <svg className="hidden">
         <defs>
           <filter id="blurMe">
@@ -156,6 +156,6 @@ export const BackgroundGradientAnimation = ({
           />
         )}
       </div>
-    </div>
+    </main>
   );
 };

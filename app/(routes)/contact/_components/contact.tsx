@@ -22,9 +22,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { ContactMessage } from "@/schemas/contact-message";
 import { sendMessage } from "@/actions/contact/send-message";
 import { useState, useTransition } from "react";
-import { FormSuccess } from "./form-success";
-import { FormPending } from "./form-pending";
-import { FormError } from "./form-error";
+import { FormSuccess } from "@/components/form-success";
+import { FormPending } from "@/components/form-pending";
+import { FormError } from "@/components/form-error";
 import { CardTitle } from "@/components/card-title";
 import { cn } from "@/lib/utils";
 
