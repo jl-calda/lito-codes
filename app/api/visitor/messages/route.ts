@@ -9,9 +9,19 @@ export async function GET() {
       },
     });
 
-    if (!messages) return null;
-    return NextResponse.json(messages);
+    if (!messages)
+      return NextResponse.json({ error: "No messages found" }, { status: 404 });
+
+    return NextResponse.json(
+      {
+        success: {
+          data: messages,
+          message: "Messages fetched successfully",
+        },
+      },
+      { status: 200 }
+    );
   } catch {
-    return null;
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
 }
