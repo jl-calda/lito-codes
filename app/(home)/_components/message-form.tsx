@@ -14,10 +14,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CardTitle } from "@/components/card-title";
 import AvatarPopover from "./avatar-popover";
 
-import axios from "axios";
 import { cn } from "@/lib/utils";
 import { send } from "@/actions/visitor/send";
 import { useRouter } from "next/navigation";
+import { BannerSuccess } from "@/components/banner-success";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -67,7 +67,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
   };
 
   return (
-    <Card className={cn("", className)}>
+    <Card className={cn("relative", className)}>
       <CardTitle
         icon={FaHand}
         title="Say hi!"
@@ -142,6 +142,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
           </form>
         </Form>
       </CardContent>
+      <BannerSuccess message="test" />
     </Card>
   );
 };

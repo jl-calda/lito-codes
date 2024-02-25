@@ -8,6 +8,8 @@ import { Exo } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { BackgroundGradientAnimation } from "@/components/animated/background-gradient";
+import dynamic from "next/dynamic";
+import { ClientOnly } from "@/components/client-only";
 
 const font = Exo({
   weight: ["300", "400", "500", "600", "700"],
@@ -25,28 +27,30 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
       suppressHydrationWarning={true}
     >
       <body className={cn(font.className, "min-h-full")}>
-        <BackgroundGradientAnimation
-          containerClassName="flex"
-          className="w-full items-center flex flex-col z-10"
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+        <ClientOnly>
+          <BackgroundGradientAnimation
+            containerClassName="flex"
+            className="w-full items-center flex flex-col z-10"
           >
-            {/* <SocketProvider> */}
-            <Header />
-            <HeroSection />
-            {/* <Separator /> */}
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {/* <SocketProvider> */}
+              <Header />
+              <HeroSection />
+              {/* <Separator /> */}
 
-            <div className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
-              <div>{children}</div>
-              <Footer />
-            </div>
-            {/* </SocketProvider> */}
-          </ThemeProvider>
-        </BackgroundGradientAnimation>
+              <div className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
+                <div>{children}</div>
+                <Footer />
+              </div>
+              {/* </SocketProvider> */}
+            </ThemeProvider>
+          </BackgroundGradientAnimation>
+        </ClientOnly>
       </body>
     </html>
   );

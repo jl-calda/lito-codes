@@ -3,7 +3,7 @@
 import { db } from "@/lib/db";
 import { VisitorMessageSchema } from "@/schemas/contact-message";
 import * as z from "zod";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export const send = async (data: z.infer<typeof VisitorMessageSchema>) => {
   const validatedFields = VisitorMessageSchema.safeParse(data);
@@ -19,7 +19,7 @@ export const send = async (data: z.infer<typeof VisitorMessageSchema>) => {
       },
     });
 
-    // revalidateTag("visitor-message");
+    revalidatePath("/");
 
     return {
       success: "Message sent! Thank you!",
