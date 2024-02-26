@@ -16,7 +16,7 @@ export const BannerPending = ({ message }: BannerPendingProps) => {
         "absolute top-2 right-2 px-4 py-1 font-medium text-xs font-mono"
       )}
     >
-      <FaSpinner className="animate-spin-slow" />
+      <span>{`${message} `}</span> <FaSpinner className="animate-spin-slow" />
     </div>
   );
 };

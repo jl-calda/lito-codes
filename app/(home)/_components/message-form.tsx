@@ -152,7 +152,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
         </Form>
       </CardContent>
       {success && <BannerSuccess message={success} />}
-      {pending && <BannerPending message="Sending message..." />}
+      {pending && (!success || !error) && <BannerPending message="Sending" />}
       {error && <BannerError message={error} />}
     </Card>
   );
