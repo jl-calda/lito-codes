@@ -28,7 +28,7 @@ export const MessagesBoard = ({ className, messages }: MessagesBoardProps) => {
         subtitle="All messages from visitors💌"
       />
       <CardContent>
-        <ScrollArea className="h-[50vh]">
+        <ScrollArea className="h-[65vh]">
           <div
             className="flex flex-col-reverse gap-y-2"
             suppressHydrationWarning

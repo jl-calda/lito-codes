@@ -28,7 +28,7 @@ export const ProjectCard = ({ className }: ProjectCardProps) => {
         subtitle="Projects I've worked on."
         icon={FaBoxesStacked}
       />
-      <CardContent className="">
+      <CardContent className="flex-1 justify-self-center">
         <Carousel
           opts={{
             loop: true,

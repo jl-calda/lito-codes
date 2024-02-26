@@ -91,13 +91,13 @@ const config = {
         },
         moveVertical: {
           "0%": {
-            transform: "translateY(-100%)",
+            transform: "translateY(-80%)",
           },
           "50%": {
             transform: "translateY(50%)",
           },
           "100%": {
-            transform: "translateY(100%)",
+            transform: "translateY(80%)",
           },
         },
       },
@@ -114,7 +114,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
 
 export default config;
