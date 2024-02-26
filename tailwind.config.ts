@@ -91,13 +91,13 @@ const config = {
         },
         moveVertical: {
           "0%": {
-            transform: "translateY(-50%)",
+            transform: "translateY(-100%)",
           },
           "50%": {
             transform: "translateY(50%)",
           },
           "100%": {
-            transform: "translateY(-50%)",
+            transform: "translateY(100%)",
           },
         },
       },
@@ -110,6 +110,7 @@ const config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        sixth: "moveVertical 30s ease infinite",
       },
     },
   },
