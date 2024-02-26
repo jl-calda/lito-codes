@@ -61,6 +61,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
           }
           if (data.success) {
             form.reset();
+            router.push("/");
             router.refresh();
             setSuccess(data.success);
             setTimeout(() => {
