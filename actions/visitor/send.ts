@@ -9,7 +9,7 @@ export const send = async (data: z.infer<typeof VisitorMessageSchema>) => {
   const validatedFields = VisitorMessageSchema.safeParse(data);
 
   if (!validatedFields.success) {
-    return { error: "Invalid data" };
+    return { error: "Invalid data🤨" };
   }
 
   try {
@@ -22,9 +22,9 @@ export const send = async (data: z.infer<typeof VisitorMessageSchema>) => {
     revalidatePath("/");
 
     return {
-      success: "Message sent! Thank you!",
+      success: "Message sent!🥹",
     };
   } catch {
-    return { error: "An error occurred" };
+    return { error: "An error occurred😫" };
   }
 };

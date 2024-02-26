@@ -24,8 +24,8 @@ export const MessagesBoard = ({ className, messages }: MessagesBoardProps) => {
       {/* <BackgroundGradientAnimation> */}
       <CardTitle
         icon={FaStackExchange}
-        title="Visitors' Message Board"
-        subtitle="All messages from visitors"
+        title="Message Board"
+        subtitle="All messages from visitors💌"
       />
       <CardContent>
         <ScrollArea className="h-[50vh]">

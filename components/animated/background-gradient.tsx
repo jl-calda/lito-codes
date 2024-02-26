@@ -153,10 +153,10 @@ export const BackgroundGradientAnimation = ({
             onMouseMove={handleMouseMove}
             className={cn(
               `absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.7)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
-              `[mix-blend-mode:var(--blending-value)] w-[var(--width)] h-[var(--height)] -top-1/3 left-1/4`,
+              `[mix-blend-mode:var(--blending-value)] w-[clamp(50vw,80%,800px)] h-[50vh,60%,600px] -top-1/3 left-1/4`,
               `[transform-origin:calc(50%-var(--width)/2)_calc(50%-var(--height)/2)]`,
               `animate-sixth`,
-              `opacity-90 z-[999]`
+              `opacity-70`
             )}
           />
         )}

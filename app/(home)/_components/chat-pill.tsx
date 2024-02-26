@@ -28,9 +28,11 @@ export const ChatPill = ({
         <div className="flex-1 flex flex-col">
           <div className="flex-col space-y-1 justify-between w-full items-center">
             <p className="font-semibold">{name}</p>
-            <p className="text-xs text-muted-foreground">{`${new Date(createdAt)
-              .getUTCDate()
-              .toLocaleString("en-US")}`}</p>
+            <p className="text-xs text-muted-foreground">{`${new Date(
+              createdAt
+            ).getUTCDate()} / ${new Date(createdAt).getUTCMonth()} / ${new Date(
+              createdAt
+            ).getUTCFullYear()}`}</p>
           </div>
         </div>
       </div>

@@ -18,6 +18,8 @@ import { cn } from "@/lib/utils";
 import { send } from "@/actions/visitor/send";
 import { useRouter } from "next/navigation";
 import { BannerSuccess } from "@/components/banner-success";
+import { BannerPending } from "@/components/banner-pending";
+import { BannerError } from "@/components/banner-error";
 
 const MessageSchema = z.object({
   name: z.string(),
@@ -53,11 +55,17 @@ export const MessageForm = ({ className }: MessageFormProps) => {
         .then((data) => {
           if (data.error) {
             setError(data.error);
+            setTimeout(() => {
+              setError("");
+            }, 3000);
           }
           if (data.success) {
             form.reset();
             router.refresh();
             setSuccess(data.success);
+            setTimeout(() => {
+              setSuccess("");
+            }, 3000);
           }
         })
         .catch((error) => {
@@ -142,7 +150,9 @@ export const MessageForm = ({ className }: MessageFormProps) => {
           </form>
         </Form>
       </CardContent>
-      <BannerSuccess message="test" />
+      {success && <BannerSuccess message={success} />}
+      {pending && <BannerPending message="Sending message..." />}
+      {error && <BannerError message={error} />}
     </Card>
   );
 };
