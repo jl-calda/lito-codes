@@ -10,8 +10,8 @@ export const BackgroundGradientAnimation = ({
   fourthColor = "200, 50, 50",
   fifthColor = "180, 180, 50",
   pointerColor = "140, 100, 255",
-  width = "300px",
-  height = "300px",
+  width = "min(80vh, 80vw)",
+  height = "min(80vh, 80vw)",
   blendingValue = "hard-light",
   children,
   className,
@@ -153,8 +153,8 @@ export const BackgroundGradientAnimation = ({
             onMouseMove={handleMouseMove}
             className={cn(
               `absolute [background:radial-gradient(circle_at_center,_rgba(var(--pointer-color),_0.7)_0,_rgba(var(--pointer-color),_0)_50%)_no-repeat]`,
-              `[mix-blend-mode:var(--blending-value)] w-full h-full -top-1/2 -left-1/2`,
-              `opacity-70`
+              `[mix-blend-mode:var(--blending-value)] w-[min(90vh,90vw)] h-[min(90vh,90vw)] -top-1/2 -left-1/2`,
+              `opacity-90`
             )}
           />
         )}
