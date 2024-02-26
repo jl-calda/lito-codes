@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { VisitorMessage } from "@prisma/client";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import Image from "next/image";
+import {format} from "date-fns";
 
 interface ChatPillProps {
   data: VisitorMessage;
@@ -28,11 +29,9 @@ export const ChatPill = ({
         <div className="flex-1 flex flex-col">
           <div className="flex-col space-y-1 justify-between w-full items-center">
             <p className="font-semibold">{name}</p>
-            <p className="text-xs text-muted-foreground">{`${new Date(
-              createdAt
-            ).getUTCDate()} / ${new Date(createdAt).getUTCMonth()} / ${new Date(
-              createdAt
-            ).getUTCFullYear()}`}</p>
+            <p className="text-xs text-muted-foreground">
+              {format(new Date(createdAt), "Pp")}
+            </p>
           </div>
         </div>
       </div>

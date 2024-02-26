@@ -76,7 +76,7 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
           </AvatarFallback>
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col space-y-4 bg-primary text-muted">
+      <PopoverContent className="flex flex-col space-y-4 text-muted bg-transparent bg-gradient-to-b from-secondary/30 to-secondary/70">
         <Tabs
           defaultValue="male"
           className="bg-primary"
