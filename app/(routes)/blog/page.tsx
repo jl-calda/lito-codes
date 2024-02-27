@@ -2,6 +2,7 @@ import Markdown from "markdown-to-jsx";
 
 import { getFileNames } from "@/lib/blogs/blogs";
 import { getMarkdown } from "@/lib/blogs/markdown";
+import { Card, CardContent } from "@/components/ui/card";
 
 const BlogsPage = () => {
   const blogs = getFileNames();
@@ -11,8 +12,12 @@ const BlogsPage = () => {
   const featuredBlog = featuredBlogs[0];
 
   return (
-    <section className="prose text-muted-foreground py-2">
-      <Markdown>{featuredBlog.content}</Markdown>
+    <section className="prose text-muted-foreground">
+      <Card>
+        <CardContent>
+          <Markdown>{featuredBlog.content}</Markdown>
+        </CardContent>
+      </Card>
     </section>
   );
 };
