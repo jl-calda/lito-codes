@@ -2,8 +2,15 @@
 
 import { usePathname } from "next/navigation";
 import { ProjectNav } from "./project-nav";
+import { BlogNav } from "./blog-nav";
+import { GrayMatterFile } from "gray-matter";
 
-export const SecondaryNav = () => {
+interface SecondaryNavProps {
+  blogs: GrayMatterFile<string>[];
+  fileNames: string[];
+}
+
+export const SecondaryNav = ({ blogs, fileNames }: SecondaryNavProps) => {
   const pathName = usePathname();
 
   if (pathName === "/") {
@@ -14,9 +21,26 @@ export const SecondaryNav = () => {
     return null;
   }
 
+  if (pathName === "/contact") {
+    return null;
+  }
+
+  if (pathName === "/services") {
+    return null;
+  }
+
+  if (pathName?.startsWith("/blog")) {
+    return (
+      <BlogNav
+        blogs={blogs}
+        fileNames={fileNames}
+      />
+    );
+  }
+
   if (pathName?.startsWith("/projects")) {
     return <ProjectNav />;
   }
 
-  return <div>SecondaryNav</div>;
+  return null;
 };

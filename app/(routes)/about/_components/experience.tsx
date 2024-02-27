@@ -14,6 +14,7 @@ export const Experience = () => {
         title="Experience"
         subtitle="Work experience and internships"
         icon={FaBriefcase}
+        className="mt-4 lg:mt-0"
       />
       <CardContent className="flex-1 py-0 flex flex-col space-y-2 pb-6">
         <div className="grid grid-flow-col gap-x-2 w-full">

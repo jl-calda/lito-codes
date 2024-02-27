@@ -20,6 +20,7 @@ export const MainCard = ({ className }: MainCardProps) => {
         title="Build your online brand"
         subtitle="We offer a range of services to help you get your brand out there."
         icon={FaBrain}
+        className="mt-4 lg:mt-0"
       />
       <CardContent className="flex-1 flex items-center">
         <AspectRatio
@@ -49,7 +50,6 @@ export const MainCard = ({ className }: MainCardProps) => {
         </p>
         <div className="flex items-center justify-end gap-4 w-full">
           <Button
-            size="lg"
             asChild
             className="rounded-lg"
           >
@@ -62,7 +62,6 @@ export const MainCard = ({ className }: MainCardProps) => {
             </Link>
           </Button>
           <Button
-            size="lg"
             variant="outline"
             className="rounded-lg"
             asChild

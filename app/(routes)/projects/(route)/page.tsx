@@ -43,9 +43,9 @@ const ProjectPage = async ({
         </div>
       ) : (
         <>
-          <Card className="bg-primary">
-            <CardHeader className="text-muted rounded-xl p-4">
-              <h2 className="text-xl font-medium font-mono flex space-x-2 items-center">
+          <Card className="">
+            <CardHeader className="rounded-xl p-2 flex justify-end">
+              <h2 className="text-base md:text-lg font-medium font-mono space-x-2 flex items-center justify-end">
                 <span>
                   {filteredProjects.length > 1
                     ? "Projects using "

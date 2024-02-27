@@ -26,6 +26,7 @@ export const MessagesBoard = ({ className, messages }: MessagesBoardProps) => {
         icon={FaStackExchange}
         title="Message Board"
         subtitle="All messages from visitors💌"
+        className="mt-4 lg:mt-0"
       />
       <CardContent>
         <ScrollArea className="h-[65vh]">
@@ -41,7 +42,10 @@ export const MessagesBoard = ({ className, messages }: MessagesBoardProps) => {
           </div>
         </ScrollArea>
       </CardContent>
-      <CardBanner text={`${!messages ? "counting" : messages.length} msgs`} />
+      <CardBanner
+        text={`${!messages ? "counting" : messages.length} msgs`}
+        secondary
+      />
       {/* </BackgroundGradientAnimation> */}
     </Card>
   );

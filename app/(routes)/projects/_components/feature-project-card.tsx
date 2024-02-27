@@ -27,6 +27,7 @@ export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
         title={feature.name}
         subtitle={feature.description}
         href={`/projects/${feature.slug}`}
+        className="mt-4 lg:mt-0"
       />
 
       <CardContent className="grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-x-4 gap-y-4">

@@ -3,7 +3,7 @@ import { FaDownload, FaMagnifyingGlass, FaMessage } from "react-icons/fa6";
 
 import { CardBanner } from "@/components/card-banner";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { CardTitle } from "@/components/card-title";
 
 export const Background = () => {
@@ -13,6 +13,7 @@ export const Background = () => {
         title="Background"
         subtitle="Brief summary about me and work experience"
         icon={FaMagnifyingGlass}
+        className="mt-4 lg:mt-0"
       />
       <CardContent>
         <p className="text-base text-muted-foreground leading-7 tracking-wide">
@@ -30,35 +31,35 @@ export const Background = () => {
           to showcase my skills and learnings. I am currently looking for a job
           and open for any opportunities.
         </p>
-        <div className="flex items-center space-x-2 justify-end">
-          <Button
-            variant="secondary"
-            className="rounded-lg"
-            asChild
-          >
-            <Link
-              href="/api/resume"
-              target="_blank"
-              className="flex items-center space-x-2"
-            >
-              <FaDownload className="h-6 w-6" />
-              <span>Resume</span>
-            </Link>
-          </Button>
-          <Button
-            className="rounded-lg"
-            asChild
-          >
-            <Link
-              href="/contact"
-              className="flex items-center space-x-2"
-            >
-              <FaMessage className="h-6 w-6" />
-              <span>Connect</span>
-            </Link>
-          </Button>
-        </div>
       </CardContent>
+      <CardFooter className="flex items-center space-x-2 justify-end">
+        <Button
+          variant="secondary"
+          className="rounded-lg"
+          asChild
+        >
+          <Link
+            href="/api/resume"
+            target="_blank"
+            className="flex items-center space-x-2"
+          >
+            <FaDownload className="h-6 w-6" />
+            <span>Resume</span>
+          </Link>
+        </Button>
+        <Button
+          className="rounded-lg"
+          asChild
+        >
+          <Link
+            href="/contact"
+            className="flex items-center space-x-2"
+          >
+            <FaMessage className="h-6 w-6" />
+            <span>Connect</span>
+          </Link>
+        </Button>
+      </CardFooter>
       <CardBanner text="Open for employment" />
     </Card>
   );

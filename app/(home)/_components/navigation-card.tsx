@@ -51,18 +51,18 @@ export const NavigationCard = ({ className }: NavigationCardProps) => {
       icon: FaBlogger,
       live: true,
     },
-    {
-      name: "Code",
-      url: "/code",
-      icon: FaCode,
-      live: true,
-    },
-    {
-      name: "Merch",
-      url: "/merch",
-      icon: FaShirt,
-      live: false,
-    },
+    // {
+    //   name: "Code",
+    //   url: "/code",
+    //   icon: FaCode,
+    //   live: true,
+    // },
+    // {
+    //   name: "Merch",
+    //   url: "/merch",
+    //   icon: FaShirt,
+    //   live: false,
+    // },
   ];
   return (
     <Card className={cn(className)}>

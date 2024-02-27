@@ -76,26 +76,26 @@ export const Sidebar = () => {
       live: true,
       active: pathName?.startsWith("/blog"),
     },
-    {
-      name: "Code",
-      url: "/code",
-      icon: FaCode,
-      live: true,
-      active: pathName?.startsWith("/code"),
-    },
-    {
-      name: "Merch",
-      url: "/merch",
-      icon: FaShirt,
-      live: false,
-      active: pathName?.startsWith("/merch"),
-    },
+    // {
+    //   name: "Code",
+    //   url: "/code",
+    //   icon: FaCode,
+    //   live: true,
+    //   active: pathName?.startsWith("/code"),
+    // },
+    // {
+    //   name: "Merch",
+    //   url: "/merch",
+    //   icon: FaShirt,
+    //   live: false,
+    //   active: pathName?.startsWith("/merch"),
+    // },
   ];
 
   const isMobile = useMediaQuery("only screen and (max-width : 768px)");
   return (
     <aside className="flex flex-col space-y-2">
-      <Card
+      {/* <Card
         className="hidden md:block"
         style={{
           backgroundImage: "var(--gradient)",
@@ -110,7 +110,7 @@ export const Sidebar = () => {
             <FaPaperPlane className="h-4 w-4" />
           </Button>
         </CardContent>
-      </Card>
+      </Card> */}
       <SidebarSeparator title="Navigation" />
       <nav className="">
         <div className="flex flex-wrap gap-x-2 gap-y-2">

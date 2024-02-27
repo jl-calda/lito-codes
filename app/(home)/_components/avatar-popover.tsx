@@ -76,11 +76,8 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
           </AvatarFallback>
         </Avatar>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col space-y-4 text-muted bg-transparent bg-gradient-to-b from-secondary/30 to-secondary/70">
-        <Tabs
-          defaultValue="male"
-          className="bg-primary"
-        >
+      <PopoverContent className="flex flex-col space-y-4 text-muted bg-transparent bg-gradient-to-b from-secondary/30 to-secondary/40 backdrop-blur-md">
+        <Tabs defaultValue="male">
           <TabsList className="w-full flex justify-between">
             <TabsTrigger
               className="flex w-full"
@@ -262,7 +259,7 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
           >
             <FaArrowLeft className="w-4 h-4" />
           </Button>
-          <span className="text-sm">{`Page ${page}`}</span>
+          <span className="text-sm text-muted-foreground">{`Page ${page}`}</span>
           <Button
             variant="outline"
             size="icon"

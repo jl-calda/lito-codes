@@ -81,6 +81,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
         icon={FaHand}
         title="Say hi!"
         subtitle="Join my message board. Choose an avatar!"
+        className="mt-4 lg:mt-0"
       />
       {}
 

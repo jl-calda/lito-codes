@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { FaDownload, FaThumbsUp } from "react-icons/fa6";
 import { CardTitle } from "@/components/card-title";
+import { cn } from "@/lib/utils";
 
-const HireMe = () => {
+interface HireMeProps {
+  className?: string;
+}
+
+const HireMe = ({ className }: HireMeProps) => {
   return (
-    <Card>
+    <Card className={cn(className)}>
       <CardTitle
         title="Hire Me"
         subtitle="Looking for a job"

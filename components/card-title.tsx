@@ -16,6 +16,7 @@ interface CardTitleProps {
   subtitle: string;
   muted?: boolean;
   href?: string;
+  className?: string;
 }
 
 export const CardTitle = ({
@@ -24,9 +25,10 @@ export const CardTitle = ({
   subtitle,
   muted,
   href,
+  className,
 }: CardTitleProps) => {
   return (
-    <CardHeader>
+    <CardHeader className={cn(className)}>
       {href ? (
         <Button
           variant="link"

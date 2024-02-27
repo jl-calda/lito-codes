@@ -44,7 +44,7 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
               {/* <Separator /> */}
 
               <div className="w-full max-w-7xl flex-1 md:h-full px-2 lg:px-4 flex flex-col gap-y-4">
-                <div>{children}</div>
+                <div className="flex-1">{children}</div>
                 <Footer />
               </div>
               {/* </SocketProvider> */}

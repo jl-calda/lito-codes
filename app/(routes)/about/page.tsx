@@ -20,9 +20,9 @@ const AboutPage = () => {
       </div>
       <Stack />
       <Projects />
-      <Merch />
+      {/* <Merch /> */}
       <Blog />
-      <Snippets />
+      {/* <Snippets /> */}
       <Social />
     </section>
   );

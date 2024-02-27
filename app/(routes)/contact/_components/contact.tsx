@@ -27,6 +27,9 @@ import { FormPending } from "@/components/form-pending";
 import { FormError } from "@/components/form-error";
 import { CardTitle } from "@/components/card-title";
 import { cn } from "@/lib/utils";
+import { BannerSuccess } from "@/components/banner-success";
+import { BannerPending } from "@/components/banner-pending";
+import { BannerError } from "@/components/banner-error";
 
 interface ContactProps {
   className?: string;
@@ -53,10 +56,16 @@ const Contact = ({ className }: ContactProps) => {
           if (res.success) {
             setSuccess(res.success);
             form.reset();
+            setTimeout(() => {
+              setSuccess("");
+            }, 3000);
           }
           if (res.error) {
             form.reset();
             setError(res.error);
+            setTimeout(() => {
+              setError("");
+            }, 3000);
           }
         })
         .catch((err) => {
@@ -65,17 +74,13 @@ const Contact = ({ className }: ContactProps) => {
     });
   };
 
-  const onFocus = () => {
-    setSuccess("");
-    setError("");
-  };
-
   return (
-    <Card className={cn("flex flex-col order-1 md:order-none", className)}>
+    <Card className={cn("flex flex-col relative", className)}>
       <CardTitle
         title="Contact"
         subtitle="Fill up the form below and send me a message!"
         icon={FaMessage}
+        className="mt-4 lg:mt-0"
       />
 
       <Form {...form}>
@@ -95,7 +100,6 @@ const Contact = ({ className }: ContactProps) => {
                   </div>
                   <FormControl>
                     <Input
-                      onFocus={onFocus}
                       disabled={pending}
                       {...field}
                       className="bg-secondary"
@@ -116,7 +120,6 @@ const Contact = ({ className }: ContactProps) => {
                   </div>
                   <FormControl>
                     <Input
-                      onFocus={onFocus}
                       disabled={pending}
                       {...field}
                       className="bg-secondary"
@@ -141,7 +144,6 @@ const Contact = ({ className }: ContactProps) => {
                   <FormControl>
                     <Textarea
                       disabled={pending}
-                      onFocus={onFocus}
                       {...field}
                       className="bg-secondary flex-1"
                     />
@@ -153,9 +155,9 @@ const Contact = ({ className }: ContactProps) => {
                 </FormItem>
               )}
             />
-            {success && <FormSuccess message={success} />}
-            {error && <FormError message={error} />}
-            {pending && <FormPending />}
+            {!pending && success && <BannerSuccess message={success} />}
+            {pending && <BannerPending message="Sending " />}
+            {!pending && error && <BannerError message={error} />}
           </CardContent>
           <CardFooter>
             <Button

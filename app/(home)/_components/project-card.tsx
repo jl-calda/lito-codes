@@ -33,7 +33,7 @@ export const ProjectCard = ({ className }: ProjectCardProps) => {
           opts={{
             loop: true,
           }}
-          className="h-full"
+          className="h-full relative"
         >
           <CarouselContent className="h-full flex items-center">
             {projects.map((data) => (

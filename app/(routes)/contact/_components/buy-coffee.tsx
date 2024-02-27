@@ -4,10 +4,15 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
 import { FaCoffee } from "react-icons/fa";
 import { CardTitle } from "@/components/card-title";
+import { cn } from "@/lib/utils";
 
-export const BuyCoffee = () => {
+interface BuyCoffeeProps {
+  className?: string;
+}
+
+export const BuyCoffee = ({ className }: BuyCoffeeProps) => {
   return (
-    <Card className="flex-1 flex flex-col">
+    <Card className={cn("flex-1 flex flex-col", className)}>
       <CardTitle
         title="Buy me a coffee"
         subtitle="Your donation will keep caffein in my veins. ☕"
