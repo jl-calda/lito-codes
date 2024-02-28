@@ -9,21 +9,15 @@ import { format } from "date-fns";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BlogLink } from "./blog-link";
+import { GrayMatterFile } from "gray-matter";
 
 interface BlogCardProps {
   className?: string;
+  blogs: GrayMatterFile<string>[];
 }
 
-export const BlogCard = ({ className }: BlogCardProps) => {
-  const blogs = getFileNames();
-  const latestBlogs = blogs
-    .map((filename) => getMarkdown(filename))
-    .sort((a, b) => {
-      return new Date(b.data.date).getDate() - new Date(a.data.date).getDate();
-    })
-    .slice(0, 3);
-
-  console.log(latestBlogs);
+export const BlogCard = ({ className, blogs }: BlogCardProps) => {
+  const latestBlogs = blogs.slice(0, 3);
   return (
     <Card className={cn("flex flex-col min-h-max", className)}>
       <CardTitle

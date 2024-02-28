@@ -89,7 +89,7 @@ export type Social = {
 export const socials: Social[] = [
   {
     name: "GitHub",
-    url: "www.github.com/jl-calda",
+    url: "https://github.com/jl-calda",
     icon: FaGithub,
   },
   // {
@@ -99,7 +99,7 @@ export const socials: Social[] = [
   // },
   {
     name: "LinkedIn",
-    url: "www.linkedin.com",
+    url: "https://linkedin.com/in/jlcalda",
     icon: FaLinkedinIn,
   },
 ];

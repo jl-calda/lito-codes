@@ -58,7 +58,7 @@ export const MainCard = ({ className }: MainCardProps) => {
               className="text-base font-medium flex items-center"
             >
               <FaHandHolding className="h-4 w-4 mr-2" />
-              View Services
+              Interested
             </Link>
           </Button>
           <Button
@@ -71,7 +71,7 @@ export const MainCard = ({ className }: MainCardProps) => {
               className="text-base font-medium flex items-center"
             >
               <FaMessage className="h-4 w-4 mr-2" />
-              Contact Us
+              Contact Me
             </Link>
           </Button>
         </div>

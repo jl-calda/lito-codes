@@ -1,3 +1,4 @@
+import { CardTitle } from "@/components/card-title";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { getMarkdown } from "@/lib/blogs/markdown";
 import Markdown from "markdown-to-jsx";
@@ -12,12 +13,14 @@ const BlogPage = async ({ params: { slug } }: BlogPageParams) => {
   const blog = getMarkdown(`${slug}.md`);
 
   return (
-    <Card className="md:prose">
-      <CardHeader className="flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold">{blog.data.title}</h1>
-        <p className="text-sm">{blog.data.date}</p>
-      </CardHeader>
-      <CardContent></CardContent>
+    <Card className="md:prose relative">
+      <CardTitle
+        title={blog.data.title}
+        subtitle={blog.data.date}
+      />
+      <CardContent>
+        <Markdown>{blog.content}</Markdown>
+      </CardContent>
     </Card>
   );
 };

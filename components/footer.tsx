@@ -21,7 +21,7 @@ const socials = [
   // },
   {
     name: "LinkedIn",
-    url: "www.linkedin.com",
+    url: "https://linkedin.com/in/jlcalda",
     icon: <LinkedInLogoIcon className="w-4 h-4" />,
   },
 ];

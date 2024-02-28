@@ -25,7 +25,7 @@ const HireMe = ({ className }: HireMeProps) => {
           asChild
         >
           <Link
-            href="/api/resume"
+            href="https://drive.google.com/file/d/1CJvGF2695SuPMKEZoQgfjCxSJStT8UVK/view?usp=sharing"
             target="_blank"
             className="flex flex-col items-center justify-center space-y-2"
           >

@@ -6,11 +6,17 @@ import { ProjectCard } from "./_components/project-card";
 import { NavigationCard } from "./_components/navigation-card";
 import { BlogCard } from "./_components/blog-card";
 import { messages } from "@/lib/messages";
-
-export const revalidate = 1;
+import { getFileNames } from "@/lib/blogs/blogs";
+import { getMarkdown } from "@/lib/blogs/markdown";
 
 const HomePage = async () => {
   const visitorMessages = await messages();
+  const filenames = getFileNames();
+  const blogs = filenames
+    .map((filename) => getMarkdown(filename))
+    .sort((a, b) => {
+      return new Date(b.data.date).getDate() - new Date(a.data.date).getDate();
+    });
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-[1fr_1fr_0.8fr] md:grid-rows-[0.5fr_1.2fr_0.65fr_0.6fr] gap-x-6 gap-y-6 pt-20">
@@ -22,7 +28,10 @@ const HomePage = async () => {
         className="md:row-span-2  order-4 md:order-4"
       />
       <ProjectCard className="md:row-span-2 order-2 md:order-5" />
-      <BlogCard className="md:row-span-2 order-3 md:order-6" />
+      <BlogCard
+        blogs={blogs}
+        className="md:row-span-2 order-3 md:order-6"
+      />
       <NavigationCard className="order-6 md:order-7" />
     </section>
   );

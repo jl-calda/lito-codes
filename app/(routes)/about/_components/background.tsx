@@ -39,7 +39,7 @@ export const Background = () => {
           asChild
         >
           <Link
-            href="/api/resume"
+            href="https://drive.google.com/file/d/1CJvGF2695SuPMKEZoQgfjCxSJStT8UVK/view?usp=sharing"
             target="_blank"
             className="flex items-center space-x-2"
           >

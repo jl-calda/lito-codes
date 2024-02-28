@@ -18,9 +18,10 @@ const font = Exo({
 
 interface HomeLayoutProps {
   children: React.ReactNode;
+  modals?: React.ReactNode;
 }
 
-const HomeLayout = ({ children }: HomeLayoutProps) => {
+const HomeLayout = ({ children, modals }: HomeLayoutProps) => {
   return (
     <html
       lang="en"
