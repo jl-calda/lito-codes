@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BlogLink } from "./blog-link";
 import { GrayMatterFile } from "gray-matter";
+import { UnderConstruction } from "@/components/under-construction";
 
 interface BlogCardProps {
   className?: string;
@@ -18,6 +19,7 @@ interface BlogCardProps {
 
 export const BlogCard = ({ className, blogs }: BlogCardProps) => {
   const latestBlogs = blogs.slice(0, 3);
+
   return (
     <Card className={cn("flex flex-col min-h-max", className)}>
       <CardTitle
@@ -26,14 +28,15 @@ export const BlogCard = ({ className, blogs }: BlogCardProps) => {
         icon={FaBlogger}
       />
       <CardContent className="flex-1">
-        <ul className="grid grid-flow-row gap-y-4">
+        <UnderConstruction />
+        {/* <ul className="grid grid-flow-row gap-y-4">
           {latestBlogs.map((blog) => (
             <BlogLink
               data={blog.data}
               key={crypto.randomUUID()}
             />
           ))}
-        </ul>
+        </ul> */}
       </CardContent>
       <CardFooter className="flex items-center justify-end">
         <Button

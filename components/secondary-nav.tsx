@@ -30,6 +30,7 @@ export const SecondaryNav = ({ blogs, fileNames }: SecondaryNavProps) => {
   }
 
   if (pathName?.startsWith("/blog")) {
+    return null;
     return (
       <BlogNav
         blogs={blogs}

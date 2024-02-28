@@ -5,6 +5,7 @@ import { getMarkdown } from "@/lib/blogs/markdown";
 import { Card, CardContent } from "@/components/ui/card";
 import { CardBanner } from "@/components/card-banner";
 import { CardTitle } from "@/components/card-title";
+import { UnderConstruction } from "@/components/under-construction";
 
 const BlogsPage = () => {
   const blogs = getFileNames();
@@ -16,14 +17,15 @@ const BlogsPage = () => {
   return (
     <section className="prose text-muted-foreground">
       <Card className="relative">
-        <CardTitle
+        {/* <CardTitle
           title={featuredBlog.data.title}
           subtitle={featuredBlog.data.date}
-        />
+        /> */}
         <CardContent>
-          <Markdown>{featuredBlog.content}</Markdown>
+          <UnderConstruction />
+          {/* <Markdown>{featuredBlog.content}</Markdown> */}
         </CardContent>
-        <CardBanner text="Featured blog" />
+        {/* <CardBanner text="Featured blog" /> */}
       </Card>
     </section>
   );
