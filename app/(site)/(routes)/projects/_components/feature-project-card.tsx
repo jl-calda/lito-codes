@@ -6,13 +6,13 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-} from "../../../../components/ui/card";
+} from "@/components/ui/card";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/components/ui/button";
 
 import Link from "next/link";
-import { CardBanner } from "../../../../components/card-banner";
+import { CardBanner } from "@/components/card-banner";
 import { CardTitle } from "@/components/card-title";
 
 interface FeaturedProjectCardProps {

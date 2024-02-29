@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { Exo } from "next/font/google";
 
-import "./globals.css";
+import "../globals.css";
 import { Footer } from "@/components/footer";
 import { BackgroundGradientAnimation } from "@/components/animated/background-gradient";
 import dynamic from "next/dynamic";

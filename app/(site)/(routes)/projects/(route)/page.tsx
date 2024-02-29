@@ -1,5 +1,5 @@
-import { FeaturedProjectCard } from "@/app/(routes)/projects/_components/feature-project-card";
-import { ProjectCard } from "@/app/(routes)/projects/_components/project-card";
+import { FeaturedProjectCard } from "@/app/(site)/(routes)/projects/_components/feature-project-card";
+import { ProjectCard } from "@/app/(site)/(routes)/projects/_components/project-card";
 import { SectionSeparator } from "@/components/section-separator";
 import { StackIcons } from "@/components/stack-icons";
 import { Card, CardHeader } from "@/components/ui/card";

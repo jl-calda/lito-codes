@@ -13,7 +13,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { projects } from "@/data/projects";
-import { ProjectCard as ProjCard } from "@/app/(routes)/projects/_components/project-card";
+import { ProjectCard as ProjCard } from "@/app/(site)/(routes)/projects/_components/project-card";
 import { Button } from "@/components/ui/button";
 interface ProjectCardProps {
   className?: string;
