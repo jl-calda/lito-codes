@@ -32,7 +32,9 @@ export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
 
       <CardContent className="grid grid-cols-1 md:grid-cols-[2.5fr_1fr] gap-x-4 gap-y-4">
         <Link
-          href={`/video?url=${feature.images.video?.replace("/", "%2F")}`}
+          href={`/video?url=${encodeURIComponent(
+            feature.images.video || feature.images.thumbnail
+          )}`}
           key={crypto.randomUUID()}
         >
           <video
@@ -47,7 +49,7 @@ export const FeaturedProjectCard = ({ data }: FeaturedProjectCardProps) => {
         <div className="grid md:grid-rows-3 grid-cols-3 md:grid-cols-1 gap-y-2 gap-x-2">
           {feature.images.other?.slice(0, 3).map((image) => (
             <Link
-              href={`/photo?url=${image.replace("/", "%2F")}`}
+              href={`/photo?url=${encodeURIComponent(image)}`}
               key={image}
             >
               <AspectRatio

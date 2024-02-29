@@ -45,7 +45,9 @@ export const Screenshots = ({ data, className }: ScreenshotsProps) => {
               className="basis-4/5 cursor-pointer"
               onClick={() =>
                 router.push(
-                  `/video?url=${data?.images.video?.replace("/", "%2F")}`
+                  `/video?url=${encodeURIComponent(
+                    data.images.video || data.images.thumbnail
+                  )}`
                 )
               }
             >
@@ -66,7 +68,7 @@ export const Screenshots = ({ data, className }: ScreenshotsProps) => {
                 key={crypto.randomUUID()}
                 className="basis-4/5 cursor-pointer"
                 onClick={() =>
-                  router.push(`/photo?url=${img.replace("/", "%2F")}`)
+                  router.push(`/photo?url=${encodeURIComponent(img)}`)
                 }
               >
                 <AspectRatio ratio={13 / 9}>
@@ -83,7 +85,7 @@ export const Screenshots = ({ data, className }: ScreenshotsProps) => {
               className="basis-4/5 cursor-pointer"
               onClick={() =>
                 router.push(
-                  `/photo?url=${data?.images.thumbnail.replace("/", "%2F")}`
+                  `/photo?url=${encodeURIComponent(data?.images.thumbnail)}`
                 )
               }
             >

@@ -28,7 +28,9 @@ export const MainCard = ({ className }: MainCardProps) => {
           className="relative cursor-pointer rounded-xl overflow-clip"
         >
           {/* href={`/video?url=${feature.images.video?.replace("/", "%2F")}`} */}
-          <Link href={`/video?url=%2Fimages%2Flito-ova.mov`}>
+          <Link
+            href={`/video?url=${encodeURIComponent("/images/lito-ova.mov")}`}
+          >
             <video
               autoPlay
               loop
@@ -38,7 +40,7 @@ export const MainCard = ({ className }: MainCardProps) => {
               src="/images/lito-ova.mov"
             />
           </Link>
-          <div className="absolute inset-0 bg-black/30" />
+          {/* <div className="absolute inset-0 bg-black/30" /> */}
         </AspectRatio>
         {/* </AspectRatio> */}
       </CardContent>
