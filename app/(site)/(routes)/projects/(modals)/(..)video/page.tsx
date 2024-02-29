@@ -17,7 +17,7 @@ const VideoModal = ({ searchParams: { url } }: VideoModalParams) => {
           className="rounded-lg overflow-hidden"
         >
           <video
-            src={url}
+            src={decodeURIComponent(url)}
             autoPlay
             muted
             loop
