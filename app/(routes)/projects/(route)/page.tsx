@@ -26,7 +26,7 @@ const ProjectPage = async ({
   const nonFeaturedProjects = projects.filter((project) => !project.isFeatured);
 
   return (
-    <section className="flex flex-col space-y-4 py-4">
+    <section className="flex flex-col space-y-4 py-4 w-full h-full">
       {filteredProjects.length === 0 ? (
         <div className="flex flex-col space-y-4">
           <FeaturedProjectCard data={featuredProjects} />
