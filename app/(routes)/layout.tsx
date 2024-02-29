@@ -14,6 +14,30 @@ import { getMarkdown } from "@/lib/blogs/markdown";
 export const metadata: Metadata = {
   title: "lito-codes",
   description: "Personal website of Joselito Calda",
+  keywords: [
+    "Joselito Calda",
+    "lito-codes",
+    "lito",
+    "codes",
+    "Joselito",
+    "Calda",
+    "frontend developer",
+    "singapore",
+    "react",
+    "nextjs",
+    "tailwindcss",
+    "typescript",
+    "javascript",
+    "web development",
+    "web developer",
+    "software engineer",
+    "software developer",
+    "joey calda",
+    "lito codes",
+    "lito calda",
+    "lito",
+  ],
+  applicationName: "lito-codes",
 };
 
 export default function RootLayout({

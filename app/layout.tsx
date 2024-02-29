@@ -10,6 +10,36 @@ import { Footer } from "@/components/footer";
 import { BackgroundGradientAnimation } from "@/components/animated/background-gradient";
 import dynamic from "next/dynamic";
 import { ClientOnly } from "@/components/client-only";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "lito-codes",
+  description: "Personal website of Joselito Calda",
+  keywords: [
+    "Joselito Calda",
+    "lito-codes",
+    "lito",
+    "codes",
+    "Joselito",
+    "Calda",
+    "frontend developer",
+    "singapore",
+    "react",
+    "nextjs",
+    "tailwindcss",
+    "typescript",
+    "javascript",
+    "web development",
+    "web developer",
+    "software engineer",
+    "software developer",
+    "joey calda",
+    "lito codes",
+    "lito calda",
+    "lito",
+  ],
+  applicationName: "lito-codes",
+};
 
 const font = Exo({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,6 +57,37 @@ const HomeLayout = ({ children, modals }: HomeLayoutProps) => {
       lang="en"
       suppressHydrationWarning={true}
     >
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x52"
+          href="/favicon-32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/android-chrome-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/android-chrome-512x512.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="192x192"
+          href="/apple-touch-icon.png"
+        />
+      </head>
       <body className={cn(font.className, "min-h-full")}>
         <ClientOnly>
           <BackgroundGradientAnimation
