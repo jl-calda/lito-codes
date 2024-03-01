@@ -42,7 +42,7 @@ export const MessageForm = ({ className }: MessageFormProps) => {
     resolver: zodResolver(MessageSchema),
     defaultValues: {
       name: "",
-      avatar: "https://xsgames.co/randomusers/assets/avatars/pixel/50.jpg",
+      avatar: "/images/avatars/default.png",
       message: "",
     },
   });

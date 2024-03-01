@@ -23,9 +23,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
   const [open, setOpen] = useState(false);
   const [pending, startTransition] = useTransition();
 
-  const page_1 = Array.from({ length: 16 }, (_, index) => index);
-  const page_2 = Array.from({ length: 16 }, (_, index) => index + 16);
-  const page_3 = Array.from({ length: 16 }, (_, index) => index + 32);
+  const page_1 = Array.from({ length: 16 }, (_, index) => index + 1);
+  const page_2 = Array.from({ length: 16 }, (_, index) => index + 1 + 16);
+  const page_3 = Array.from({ length: 16 }, (_, index) => index + 1 + 32);
 
   const onPreviousPage = () => {
     if (page > 1) {
@@ -67,7 +67,7 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
           )}
           <AvatarFallback>
             <Image
-              src="https://xsgames.co/randomusers/assets/avatars/pixel/50.jpg"
+              src="/images/avatars/default.png"
               alt="Avatar"
               width={56}
               height={56}
@@ -104,9 +104,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_1.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/male${index}.jpg`}
+                    src={`/images/avatars/male${index}.jpg`}
+                    alt={`Avatar male-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -120,9 +120,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_2.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/male${index}.jpg`}
+                    src={`/images/avatars/male${index}.jpg`}
+                    alt={`Avatar male-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -136,9 +136,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_3.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/male/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/male${index}.jpg`}
+                    src={`/images/avatars/male${index}.jpg`}
+                    alt={`Avatar male-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -154,9 +154,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_1.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/pixel${index}.jpg`}
+                    src={`/images/avatars/pixel${index}.jpg`}
+                    alt={`Avatar pixel-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -170,9 +170,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_2.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/pixel${index}.jpg`}
+                    src={`/images/avatars/pixel${index}.jpg`}
+                    alt={`Avatar pixel-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -186,9 +186,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_3.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/pixel/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/pixel${index}.jpg`}
+                    src={`/images/avatars/pixel${index}.jpg`}
+                    alt={`Avatar pixel-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -204,9 +204,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_1.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/female${index}.jpg`}
+                    src={`/images/avatars/female${index}.jpg`}
+                    alt={`Avatar female-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -220,9 +220,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_2.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/female${index}.jpg`}
+                    src={`/images/avatars/female${index}.jpg`}
+                    alt={`Avatar female-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
@@ -236,9 +236,9 @@ const AvatarPopover = ({ value, onSetValue, disabled }: AvatarPopoverProps) => {
                 {page_3.map((index) => (
                   <Image
                     key={index}
-                    data-src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    src={`https://xsgames.co/randomusers/assets/avatars/female/${index}.jpg`}
-                    alt={`Avatar ${index}`}
+                    data-src={`/images/avatars/female${index}.jpg`}
+                    src={`/images/avatars/female${index}.jpg`}
+                    alt={`Avatar female-${index}`}
                     className="rounded-lg cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out"
                     width={56}
                     height={56}
