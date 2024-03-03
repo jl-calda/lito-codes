@@ -4,6 +4,7 @@ import { SocketProvider } from "@/components/providers/socket-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { Exo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../globals.css";
 import { Footer } from "@/components/footer";
@@ -113,6 +114,7 @@ const HomeLayout = ({ children, modals }: HomeLayoutProps) => {
             </ThemeProvider>
           </BackgroundGradientAnimation>
         </ClientOnly>
+        <Analytics />
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import { ModalLayoutHeader } from "./_component/modal-layout-header";
-
+import { Analytics } from "@vercel/analytics/react";
 interface ModalLayoutProps {
   children: React.ReactNode;
 }
@@ -13,6 +13,7 @@ const ModalLayout = ({ children }: ModalLayoutProps) => {
       <div className="flex-1 flex items-center justify-center max-w-7xl md:h-[calc(((100vh-8rem)*(13/9))*(9/13))] relative md:w-[calc((100vh-8rem)*(13/9))] w-[calc(100vw-2rem)] md:p-2">
         {children}
       </div>
+      <Analytics />
     </div>
   );
 };
