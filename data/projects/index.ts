@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: "quarto-asia",
     isFeatured: true,
     live: "https://quarto.asia",
-    github: "https://github.com/jl-calda/quarto.sg",
+    github: "https://github.com/jl-calda/quarto-asia",
     description:
       "A rental property posting site for Singapore. Features account creation and a location search filter using OneMap API.",
     stack: [
